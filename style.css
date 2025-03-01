@@ -8,14 +8,26 @@ body, html{
 
 }
 
+.mainContainer{
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+    "header header"
+    "sidebar library";
+}
+
 .header{
-    border : blue 2px solid
+    border : blue 2px solid;
+    grid-area: header;
 }
 
 .sidebar{
-    border : green 2px solid
+    border : green 2px solid;
+    grid-area: sidebar;
 }
 
 .library{
-    border : red 2px solid
+    border : red 2px solid;
+    grid-area: library;
 }
