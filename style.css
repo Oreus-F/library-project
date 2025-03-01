@@ -5,5 +5,17 @@
 body, html{
     margin: 0;
     padding: 0;
-    
+
+}
+
+.header{
+    border : blue 2px solid
+}
+
+.sidebar{
+    border : green 2px solid
+}
+
+.library{
+    border : red 2px solid
 }
