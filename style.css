@@ -30,6 +30,14 @@ body, html {
 .header{
     border : blue 2px solid;
     grid-area: header;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.header > ul {
+    display: flex;
+    gap: 24px;
 }
 
 .sidebar{
