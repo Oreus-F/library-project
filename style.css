@@ -43,7 +43,12 @@ body, html {
 .sidebar{
     border : green 2px solid;
     grid-area: sidebar;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 .library{
     border : red 2px solid;
