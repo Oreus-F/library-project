@@ -15,6 +15,10 @@ body, html {
 }
 
 .mainContainer{
+    width: 100vw;
+    min-height: 100%;
+
+
     display: grid;
     grid-template-columns: 15% 1fr;
     grid-template-rows: 50px 1fr;
