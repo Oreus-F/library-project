@@ -86,7 +86,11 @@ body, html {
 
     position: sticky;
     top: 0px;
+}
 
+.library > div:first-child > form {
+    display: flex;
+    justify-content: space-between;
 }
 
 .library > div:last-child{
