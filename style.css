@@ -45,11 +45,21 @@ body, html {
     border : green 2px solid;
     grid-area: sidebar;
 
+    display: grid;
+    grid-template-rows: 15% 1fr;
+}
+
+.sidebar ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    gap: 32px;
 }
+
+.sidebar ul > li:nth-child(4), .sidebar ul > li:nth-child(8){
+    margin-bottom: 24px;
+    
+}
+
 
 
 .library{
