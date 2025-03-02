@@ -37,8 +37,33 @@
         </div>
 
         <div class="library">
-            
-            <div></div>
+
+            <div>
+                <form action="get">
+                    <label for="search">LOOP ICON BOOK</label>
+                    <input type="search" id="search" name="search">
+                    <div>Books</div>
+                    <div>Read</div>
+                    <div>Favorite</div>
+                    <select name="filter" id="filter">
+                        <!-- PEUT ON AJOUTER REDUIRE A-Z / Z-A EN UNE SEULE OPTION
+                         ET RAJOUTER UN PARAMETRE AFFICHABLE EN PLUS POUR CHOISIR DANS QUEL ORDRE ?
+                         PAREIL POUR NOMBRE DE PAGES ? ET READ / NOT READ -->
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
+                        <option value="author">Author</option>
+                        <option value="ascending-pages-numb">Ascending pages number</option>
+                        <option value="descending-pages-numb">Descending pages number</option>
+                        <option value="read">Read</option>
+                        <option value="not-read">Not Read</option>
+                        <option value="favorite">Favorite</option>
+                    </select>
+                    <button type="button">Create New Book</button>
+                </form>
+                
+                
+
+            </div>
 
             <div></div>
 
