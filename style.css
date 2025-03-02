@@ -91,5 +91,4 @@ body, html {
 
 .library > div:last-child{
     border: 2px purple solid;
-    height: 1000px;
 }
