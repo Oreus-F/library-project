@@ -89,8 +89,8 @@ body, html {
 }
 
 .library > div:first-child > form {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 40px 1fr ;
 }
 
 .library > div:last-child{
