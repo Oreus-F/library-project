@@ -26,9 +26,38 @@ function displayArray(array){
     array.forEach(item => {
         const bookCard = document.createElement("div");
         bookCard.classList.add("card");
+
+        const img = document.createElement("img");
+        img.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
+        img.setAttribute("alt", "No cover founded");
+        bookCard.appendChild(img);
+
         const title = document.createElement("p");
         title.textContent = item.title;
         bookCard.appendChild(title);
+
+        const author = document.createElement("p");
+        author.textContent = item.author;
+        bookCard.appendChild(author);
+
+        const pages = document.createElement("p");
+        pages.textContent = item.pages + " pages";
+        bookCard.appendChild(pages);
+
+        const pRead = document.createElement("p");
+
+        const label = document.createElement("label");
+        label.textContent = "Read : ";
+        label.setAttribute("for", "read");
+        pRead.appendChild(label);
+
+        const checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("name", "read");
+        checkbox.setAttribute("id", "read");
+        pRead.appendChild(checkbox);
+        bookCard.appendChild(pRead);
+
         libraryDisplay.appendChild(bookCard);
     });
 };
