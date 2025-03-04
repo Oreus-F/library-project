@@ -1,3 +1,6 @@
+const libraryDisplay = document.querySelector("#libraryDisplay");
+
+
 myLibrary = [];
 
 const Book = function(title, author, pages){
@@ -17,6 +20,17 @@ function addBookToLibrary() {
     
     //add it to library
     myLibrary.push(book);
+}
+
+function displayArray(array){
+    array.forEach(item => {
+        const bookCard = document.createElement("div");
+        bookCard.classList.add("card");
+        const title = document.createElement("p");
+        title.textContent = item.title;
+        bookCard.appendChild(title);
+        libraryDisplay.appendChild(bookCard);
+    });
 };
 
 
