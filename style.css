@@ -101,7 +101,7 @@ body, html {
     
 }
 
-.library > div:last-child{
+#libraryDisplay{
     border: 2px purple solid;
     padding: 24px;
 
