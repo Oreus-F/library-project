@@ -90,7 +90,10 @@ body, html {
 
 .library > div:first-child > form {
     display: grid;
-    grid-template-columns: 40px 1fr ;
+    grid-template-columns: 30px 3fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 12px;
+    
+    
 }
 
 .library > div:last-child{
