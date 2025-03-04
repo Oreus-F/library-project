@@ -123,7 +123,7 @@ body, html {
     "img title title"
     "img author author"
     "img pages read";
-    gap: 6px;
+    gap: 12px;
 
 }
 
@@ -134,10 +134,12 @@ body, html {
 
 .card > p:nth-child(2){
     grid-area: title;
+    font-weight: bold;
 }
 
 .card > p:nth-child(3){
     grid-area: author;
+    font-style: italic;
 }
 
 .card > p:nth-child(4){
