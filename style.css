@@ -63,6 +63,11 @@ body, html {
     gap: 32px;
 }
 
+.sidebar ul li{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+}
+
 .sidebar ul > li:nth-child(4), .sidebar ul > li:nth-child(8){
     margin-bottom: 24px;
     
