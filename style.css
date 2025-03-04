@@ -103,4 +103,47 @@ body, html {
 
 .library > div:last-child{
     border: 2px purple solid;
+    padding: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(auto-fit, 150px);
+    gap: 24px;
+}
+
+.card{
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 12px;
+
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "img title title"
+    "img author author"
+    "img pages read";
+    gap: 6px;
+
+}
+
+.card > img {
+    grid-area: img;
+    max-height: 100%;
+}
+
+.card > p:nth-child(2){
+    grid-area: title;
+}
+
+.card > p:nth-child(3){
+    grid-area: author;
+}
+
+.card > p:nth-child(4){
+    grid-area: pages;
+}
+
+.card > p:last-child{
+    grid-area: read;
 }
