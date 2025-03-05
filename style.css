@@ -24,7 +24,7 @@ body, html {
 
 
     display: grid;
-    grid-template-columns: 15% 1fr;
+    grid-template-columns: minmax(230px, 15%) 1fr;
     grid-template-rows: 50px 1fr;
     grid-template-areas: 
     "header header"
