@@ -1,4 +1,5 @@
 const libraryDisplay = document.querySelector("#libraryDisplay");
+const newBookButton = document.querySelector("#createNewBook");
 
 
 myLibrary = [];
