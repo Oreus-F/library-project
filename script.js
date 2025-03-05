@@ -21,10 +21,16 @@ function addBookToLibrary() {
     
     //add it to library
     myLibrary.push(book);
+
+    displayArray(myLibrary);
 }
 
 function displayArray(array){
+
+    libraryDisplay.replaceChildren();
+
     array.forEach(item => {
+
         const bookCard = document.createElement("div");
         bookCard.classList.add("card");
 
@@ -61,6 +67,8 @@ function displayArray(array){
 
         libraryDisplay.appendChild(bookCard);
     });
+
+
 };
 
 
@@ -71,4 +79,9 @@ const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
 myLibrary.push(book1, book2, book3);
 
 newBookButton.addEventListener("click", addBookToLibrary);
+
+
+
+/* CONSOLE TEST  */
+displayArray(myLibrary);
 console.log(myLibrary);
