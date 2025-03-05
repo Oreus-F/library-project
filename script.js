@@ -25,7 +25,7 @@ function addBookToLibrary() {
 
     //Create new book
     const book = new Book(title, author, pages);
-    book.id;
+    book.generateId();
     
     //add it to library
     myLibrary.push(book);
