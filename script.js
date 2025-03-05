@@ -1,5 +1,6 @@
 const libraryDisplay = document.querySelector("#libraryDisplay");
 const newBookButton = document.querySelector("#createNewBook");
+const newBookForm = document.querySelector("#newBookForm");
 
 
 myLibrary = [];
@@ -89,7 +90,7 @@ myLibrary.push(book1, book2, book3);
 
 newBookButton.addEventListener("click", addBookToLibrary);
 
-
+newBookForm.showModal();
 
 /* CONSOLE TEST  */
 displayArray(myLibrary);
