@@ -63,6 +63,7 @@ function displayArray(array){
     });
 };
 
+newBookButton.addEventListener("click", addBookToLibrary);
 
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
