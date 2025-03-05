@@ -21,8 +21,8 @@ body, html {
     min-height: 100%;
 
     overflow: hidden;
-
-
+    position:relative;
+    
     display: grid;
     grid-template-columns: minmax(230px, 15%) 1fr;
     grid-template-rows: 50px 1fr;
@@ -148,4 +148,18 @@ body, html {
 
 .card > p:last-child{
     grid-area: read;
+}
+
+#newBookForm:modal{
+    position: absolute;
+    top: auto;
+    left: auto;
+}
+
+#newBookForm form {
+    height: 500px;
+    width: 500px;
+
+    background-color: #ededed;
+    border-radius: 24px;
 }
