@@ -150,10 +150,12 @@ body, html {
     grid-area: read;
 }
 
-#newBookForm:modal{
-    position: absolute;
-    top: auto;
-    left: auto;
+#newBookForm{
+    margin: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 #newBookForm form {
