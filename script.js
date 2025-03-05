@@ -10,6 +10,13 @@ const Book = function(title, author, pages){
     this.pages = pages;
 }
 
+Book.prototype.id = undefined;
+
+Book.prototype.generateId = function () {
+    if(this.id ===undefined) {this.id = crypto.randomUUID()};
+};
+
+
 function addBookToLibrary() {
     // take parameters
     let title = prompt("Title ?");
@@ -18,6 +25,7 @@ function addBookToLibrary() {
 
     //Create new book
     const book = new Book(title, author, pages);
+    book.id;
     
     //add it to library
     myLibrary.push(book);
@@ -75,6 +83,7 @@ function displayArray(array){
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
+book1.generateId(); book2.generateId(); book3.generateId();
 
 myLibrary.push(book1, book2, book3);
 
