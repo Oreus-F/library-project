@@ -175,10 +175,26 @@ body, html {
 
 /* 5 STAR SYSTEM */
 
+
+
 .rate > input{
     display: none;
 }
 
 .rate:not(:checked) > label{
     float:right;
+    width: 1em;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+
+.rate > input:checked ~ label{
+    color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
 }
