@@ -53,7 +53,7 @@ function displayArray(array){
         bookCard.appendChild(title);
 
         const author = document.createElement("p");
-        author.textContent = item.author;
+        author.textContent = "by " + item.author;
         bookCard.appendChild(author);
 
         const pages = document.createElement("p");
