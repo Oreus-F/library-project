@@ -156,12 +156,15 @@ body, html {
     top: 50%;
     transform: translate(-50%, -50%);
 
-}
-
-#newBookForm form {
+    border-radius: 24px;
     height: 500px;
     width: 500px;
 
+}
+
+#newBookForm form {
+
+
     background-color: #ededed;
-    border-radius: 24px;
+
 }
