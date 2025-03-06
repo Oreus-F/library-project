@@ -190,14 +190,34 @@ body, html {
     grid-template-rows: 1fr 1fr;
 }
 
-/* #newBookForm form > p:nth-child(-n+4) > label {
-    justify-self: end;
-    
-} */
+.readFavorite {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+#newBookForm form > p:nth-last-child(2){
+    display: grid;
+    grid-column: 1/3;
+}
+
+#newBookForm form  textarea{
+    resize: none;
+
+}
+
+#newBookForm form > button {
+    grid-row: 7/8;
+}
+
+
 
 /* 5 STAR SYSTEM */
 
-
+.rate{
+    grid-column: 2/3;
+}
 
 .rate > input{
     display: none;
