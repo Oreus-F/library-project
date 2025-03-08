@@ -1,6 +1,10 @@
 const libraryDisplay = document.querySelector("#libraryDisplay");
+
 const newBookButton = document.querySelector("#createNewBook");
+const togglePanelButton = document.querySelector("#toggle-panel");
+
 const newBookForm = document.querySelector("#newBookForm");
+const extraPanel = document.querySelector(".extraInfoPanel");
 
 
 myLibrary = [];
@@ -89,6 +93,8 @@ book1.generateId(); book2.generateId(); book3.generateId();
 myLibrary.push(book1, book2, book3);
 
 newBookButton.addEventListener("click", addBookToLibrary);
+togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
+
 
 newBookForm.showModal();
 
