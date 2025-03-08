@@ -7,6 +7,9 @@ const newBookForm = document.querySelector("#newBookForm");
 const extraPanel = document.querySelector(".extraInfoPanel");
 
 
+const previewCover = document.querySelector("#preview");
+const cover = document.querySelector("#cover");
+
 myLibrary = [];
 
 const Book = function(title, author, pages){
@@ -85,6 +88,22 @@ function displayArray(array){
 };
 
 
+
+/* TEST PREVIEW */
+
+
+
+if(previewCover.getAttribute("src") === ""){
+    previewCover.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
+};
+
+cover.files.addEventListener("change", () => {
+    previewCover.setAttribute("src", )
+})
+
+/* OK FINIS */
+
+
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
@@ -94,6 +113,8 @@ myLibrary.push(book1, book2, book3);
 
 newBookButton.addEventListener("click", addBookToLibrary);
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
+
+
 
 
 newBookForm.showModal();
