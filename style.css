@@ -192,7 +192,8 @@ body, html {
     
 }
 
-#newBookForm form > p:nth-child(-n+5) > input {
+#newBookForm form > p:nth-child(-n+5) > input,
+.extraInfoPanel > p:nth-child(-n + 2) > input {
     height: 35px;
     padding: 4px;
 
@@ -205,6 +206,11 @@ body, html {
 #toggle-panel{
     height: 40px;
     width: 100%;
+
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding-left: 12px;
 }
 
 .extraInfoPanel{
@@ -214,18 +220,61 @@ body, html {
     transition: height 400ms 0ms, opacity 0ms 400ms;
 
     border: 1px solid black;
+    border-top: none;
     width: 100%;
+
+
+    padding: 20px;
 }
 
 .visible{
     opacity: 1;
-    height: 100px;
+    height: 230px;
     transition: height 0ms 0ms, opacity 400ms 0ms;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
 }
 
-#newBookForm form > p:nth-last-child(3){
-    grid-row: 4/5;
+
+.extraInfoPanel > p:nth-child(2){
+    grid-row: 2/3;
+    grid-column: 1/2;
 }
+
+.extraInfoPanel > p:nth-child(4){
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+.extraInfoPanel > p:nth-child(-n + 2){
+    display: grid;
+    gap: 6px;
+}
+
+
+.extraInfoPanel > div > img {
+    height: 140px;
+    float: right;
+}
+
+.extraInfoPanel > p:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.extraInfoPanel > p:last-child > label {
+    border: 1px solid black;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.extraInfoPanel > p:last-child > input {
+    display: none;
+}
+
 
 #newBookForm form > p:nth-last-child(2){
     display: grid;
@@ -251,7 +300,10 @@ body, html {
 
 /* 5 STAR SYSTEM */
 
-
+.rate{
+    grid-row: 7/8;
+    grid-column: 2/3;
+}
 
 .rate > input{
     display: none;
