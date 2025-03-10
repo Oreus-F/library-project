@@ -99,6 +99,7 @@ function getImgData(){
         previewCover.replaceChildren();
         const image = document.createElement("img");
         image.src = e.target.result;
+        image.alt = "book cover";
         previewCover.appendChild(image);
     });
 };
