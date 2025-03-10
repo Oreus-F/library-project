@@ -100,6 +100,7 @@ function getImgData(){
         const image = document.createElement("img");
         image.src = e.target.result;
         image.alt = "book cover";
+        image.height = 100
         previewCover.appendChild(image);
     });
 };
