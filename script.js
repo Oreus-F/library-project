@@ -8,9 +8,12 @@ const extraPanel = document.querySelector(".extraInfoPanel");
 
 
 const previewCover = document.querySelector("#preview");
-const cover = document.querySelector("#cover");
+const chooseCover = document.querySelector("#chooseCover");
+
 
 myLibrary = [];
+
+newBookForm.showModal();
 
 const Book = function(title, author, pages){
     this.title = title;
@@ -88,21 +91,17 @@ function displayArray(array){
 };
 
 
-
-/* TEST PREVIEW */
-
-
-
-if(previewCover.getAttribute("src") === ""){
-    previewCover.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
+function getImgData(){
+    const files = chooseCover.files[0];
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", (e) => {
+        previewCover.replaceChildren();
+        const image = document.createElement("img");
+        image.src = e.target.result;
+        previewCover.appendChild(image);
+    });
 };
-
-cover.files.addEventListener("change", () => {
-    previewCover.setAttribute("src", )
-})
-
-/* OK FINIS */
-
 
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
@@ -114,10 +113,14 @@ myLibrary.push(book1, book2, book3);
 newBookButton.addEventListener("click", addBookToLibrary);
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 
+chooseCover.addEventListener("change", () => {getImgData();})
 
 
 
-newBookForm.showModal();
+
+
+
+
 
 /* CONSOLE TEST  */
 displayArray(myLibrary);
