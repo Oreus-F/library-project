@@ -193,7 +193,8 @@ body, html {
 }
 
 #newBookForm form > p:nth-child(-n+5) > input,
-.extraInfoPanel > p:nth-child(-n + 2) > input {
+.extraInfoPanel > p:nth-child(1) > input,
+.extraInfoPanel > p:nth-child(2) > select {
     height: 35px;
     padding: 4px;
 
@@ -233,7 +234,7 @@ body, html {
     transition: height 0ms 0ms, opacity 400ms 0ms;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
     grid-template-rows: repeat(2, 1fr);
 }
 
