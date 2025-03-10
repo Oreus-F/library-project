@@ -255,7 +255,7 @@ body, html {
 
 
 .extraInfoPanel > div > img {
-    height: 140px;
+    width: 100px;
     float: right;
 }
 
