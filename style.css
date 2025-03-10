@@ -254,6 +254,10 @@ body, html {
     gap: 6px;
 }
 
+.extraInfoPanel > p:nth-child(-n + 2) > label {
+    align-self: self-end;
+}
+
 
 .extraInfoPanel > div > img {
     width: 100px;
@@ -306,12 +310,42 @@ body, html {
     display: grid;
     grid-template-rows: 15px 1fr;
     justify-content: center;
-    align-self: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+
+.extraInfoPanel > p:nth-child(3) svg,
+.extraInfoPanel > p:nth-child(4) svg {
+    height: 50px;
+    justify-self: center;
+}
+
+.extraInfoPanel > p:nth-child(3) > label > span {
+    justify-self: center;
 }
 
 #readOrNot, #favorite {
     display: none;
 }
+
+.extraInfoPanel > p:nth-child(3):not(:checked) > label:hover > svg{
+    fill: rgb(77, 145, 56);
+}
+
+.extraInfoPanel > p:nth-child(4):not(:checked) > label:hover > svg {
+    fill: rgb(230, 50, 50);
+}
+
+.checkedRead {
+    fill: rgb(100, 204, 76);
+}
+
+.checkedFav {
+    fill: rgb(245, 77, 77);
+}
+
 
 /* 5 STAR SYSTEM */
 

@@ -10,6 +10,11 @@ const extraPanel = document.querySelector(".extraInfoPanel");
 const previewCover = document.querySelector("#preview");
 const chooseCover = document.querySelector("#chooseCover");
 
+const readCheckbox = document.querySelector("#readOrNot");
+const favCheckbox = document.querySelector("#favorite");
+const readIcon = document.querySelector("#readIcon");
+const favIcon = document.querySelector("#favIcon");
+
 
 myLibrary = [];
 
@@ -114,6 +119,11 @@ myLibrary.push(book1, book2, book3);
 
 newBookButton.addEventListener("click", addBookToLibrary);
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
+
+readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");})
+favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")})
+
+
 
 chooseCover.addEventListener("change", () => {getImgData();})
 
