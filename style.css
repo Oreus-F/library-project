@@ -308,7 +308,7 @@ body, html {
 .extraInfoPanel > p:nth-child(3) > label,
 .extraInfoPanel > p:nth-child(4) > label {
     display: grid;
-    grid-template-rows: 15px 1fr;
+    grid-template-rows: 1fr 15px;
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -329,6 +329,8 @@ body, html {
 #readOrNot, #favorite {
     display: none;
 }
+
+
 
 .extraInfoPanel > p:nth-child(3):not(:checked) > label:hover > svg{
     fill: rgb(77, 145, 56);
