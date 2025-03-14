@@ -20,8 +20,6 @@ const closeForm = document.querySelector("#closeForm");
 
 myLibrary = [];
 
-newBookForm.showModal();
-
 const Book = function(title, author, pages){
     this.title = title;
     this.author = author;
@@ -117,15 +115,15 @@ book1.generateId(); book2.generateId(); book3.generateId();
 
 myLibrary.push(book1, book2, book3);
 
-newBookButton.addEventListener("click", addBookToLibrary);
+
+newBookButton.addEventListener("click", () => {newBookForm.showModal()})
+closeForm.addEventListener("click", () => {newBookForm.close()})
+
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
+chooseCover.addEventListener("change", () => {getImgData();});
 
-readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");})
-favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")})
-
-
-chooseCover.addEventListener("change", () => {getImgData();})
-
+readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
+favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")});
 
 
 
