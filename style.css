@@ -176,7 +176,7 @@ body, html {
     gap: 12px;
     padding: 32px;
 
-    background-color: #ededed;
+    background-color: #fbfbfb;
 
 }
 
@@ -379,4 +379,14 @@ body, html {
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
     color: #deb217;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-animation: none;
 }
