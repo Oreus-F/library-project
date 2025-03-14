@@ -389,3 +389,24 @@ input::-webkit-inner-spin-button {
 input[type="number"]{
     -moz-animation: none;
 }
+
+#closeForm {
+    position: fixed;
+    top: 2%;
+    right: 5%;
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+    border: none;
+    background-color: transparent;
+}
+
+#closeForm:hover{
+    background-color: #dddddd;
+    transition: 400ms;
+}
+
+#closeForm:active{
+    border: none;
+    background-color: #d0d0d0;
+}
