@@ -234,7 +234,7 @@ body, html {
 }
 
 .visible{
-    
+
     opacity: 1;
     height: 220px;
     transition: height 0ms 0ms, opacity 400ms 0ms;
