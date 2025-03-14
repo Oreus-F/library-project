@@ -15,6 +15,8 @@ const favCheckbox = document.querySelector("#favorite");
 const readIcon = document.querySelector("#readIcon");
 const favIcon = document.querySelector("#favIcon");
 
+const closeForm = document.querySelector("#closeForm");
+
 
 myLibrary = [];
 
@@ -25,8 +27,6 @@ const Book = function(title, author, pages){
     this.author = author;
     this.pages = pages;
 }
-
-Book.prototype.id = undefined;
 
 Book.prototype.generateId = function () {
     if(this.id ===undefined) {this.id = crypto.randomUUID()};
@@ -122,7 +122,6 @@ togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("
 
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");})
 favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")})
-
 
 
 chooseCover.addEventListener("change", () => {getImgData();})
