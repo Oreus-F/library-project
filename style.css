@@ -227,18 +227,17 @@ body, html {
     border-top: none;
     width: 100%;
 
-
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-rows: 100px 100px;
     padding: 20px;
 }
 
 .visible{
+    
     opacity: 1;
     height: 220px;
     transition: height 0ms 0ms, opacity 400ms 0ms;
-
-    display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr;
-    grid-template-rows: 100px 100px;
 }
 
 
