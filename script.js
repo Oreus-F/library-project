@@ -168,7 +168,7 @@ favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedF
 
 /* TEST TAKE DATA FROM FORM */
 
-const formData = document.querySelector("#test");
+const formData = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
@@ -184,7 +184,8 @@ const sendBook = function(event){
         return;};
     
     
-    let result = [];
+    let result = {};
+    result.title 
 
 }
 
