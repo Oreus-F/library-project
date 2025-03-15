@@ -284,9 +284,10 @@ body, html {
 }
 
 
-#newBookForm form > p:nth-last-child(2){
+#newBookForm form > p:nth-last-child(3){
     display: grid;
     grid-column: 1/3;
+    
 }
 
 #newBookForm form  textarea{
@@ -295,7 +296,7 @@ body, html {
 
 }
 
-#submit {
+#sendBookButton {
     grid-row: 8 / 9;
     grid-column: 1 / 3;
     justify-self: center;
@@ -349,6 +350,7 @@ body, html {
 .checkedFav {
     fill: rgb(245, 77, 77);
 }
+
 
 
 /* 5 STAR SYSTEM */
@@ -409,4 +411,8 @@ input[type="number"]{
 #closeForm:active{
     border: none;
     background-color: #d0d0d0;
+}
+
+#submit{
+    display: none;
 }
