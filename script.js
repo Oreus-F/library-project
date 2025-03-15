@@ -98,27 +98,38 @@ const sendBookData = function(event){
     result.title = formData.title.value;
     result.author = formData.author.value;
     result.pages = formData.pages.value;
-    if (!formData.editor.value === ""){result.editor = formData.editor.value};
-    if (!formData.parutionDate.value === "") {result.parutionDate = formData.parutionDate.value};
-    if (!formData.format.value === "") {result.format = formData.format.value};
-    if (!formData.comment.value === "") {result.comment = formData.comment.value};
-    if (!formData.rate.value === "") {result.rate = formData.rate.value};
+    if (!(formData.editor.value === "")){result.editor = formData.editor.value};
+    if (!(formData.parutionDate.value === "")) {result.parutionDate = formData.parutionDate.value};
+    if (!(formData.format.value === "")) {result.format = formData.format.value};
+    if (!(formData.comment.value === "")) {result.comment = formData.comment.value};
+    if (!(formData.rate.value === "")) {result.rate = formData.rate.value};
 
 
-    if (formData.readOrNot.checked) {console.log("toggle function when book is created")};
-    if (formData.favorite.checked) {console.log("toggle function when book is created")};
-    if (!chooseCover.value === "") {console.log("toggle function when book is created")};
+    if (formData.readOrNot.checked) {result.readOrNot = true};
+    if (formData.favorite.checked) {result.favorite = true};
+    if (!(chooseCover.value === "")) {result.cover = true};
     
     addBookToLibrary(result);
-
-
+    closeForm.click();
 };
 
 
 function addBookToLibrary(object) {
     //Create new book
-    const book = new Book(object.title, object.author, object.pages);
+    const book = new Book(object.title, object.author, Number(object.pages));
     book.generateId();
+    if (object.editor !== undefined){book.storeEditor(object.editor)};
+    if (object.parutionDate !== undefined){book.storeParutionDate(object.parutionDate)};
+    if (object.format !== undefined){book.storeFormat(object.format)};
+    if (object.readOrNot !== undefined){book.toggleRead()};
+    if (object.favorite !== undefined){book.toggleFavorite()};
+    if (object.cover !== undefined){book.storeCover(chooseCover.files[0])};
+    if (object.comment !== undefined){book.storeComment(object.comment)};
+    if (object.rate !== undefined){book.storeRate(object.rate)};
+
+    console.log(object);
+    console.log(book);
+    
     
     //add it to library
     myLibrary.push(book);
