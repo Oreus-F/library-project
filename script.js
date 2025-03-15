@@ -27,7 +27,37 @@ const Book = function(title, author, pages){
 }
 
 Book.prototype.generateId = function () {
-    if(this.id ===undefined) {this.id = crypto.randomUUID()};
+    if(this.id === undefined) {this.id = crypto.randomUUID()};
+};
+
+Book.prototype.toggleRead = function () {
+    if(this.read) {this.read = false} 
+    else {this.read = true};
+};
+
+Book.prototype.toggleFavorite = function () {
+    if (this.favorite){this.favorite = false}
+    else {this.favorite = true};
+};
+
+Book.prototype.storeEditor = function(editor){
+    this.editor = editor;
+};
+
+Book.prototype.storeParutionDate = function(date){
+    this.parutionDate = date;
+};
+
+Book.prototype.storeFormat = function(format){
+    this.format = format;
+};
+
+Book.prototype.storeComment = function(comment){
+    this.comment = comment;
+};
+
+Book.prototype.storeRate = function(value){
+    this.rate = value;
 };
 
 
@@ -130,6 +160,27 @@ favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedF
 /* TEST TAKE DATA FROM FORM */
 
 const formData = document.querySelector("#test");
+const sendBookButton = document.querySelector("#sendBookButton");
+const checkSubmit = document.querySelector("#submit");
+
+const sendBook = function(event){
+
+    event.preventDefault();
+
+
+    if (formData.title.value === "" || 
+        formData.author.value === "" || 
+        formData.pages.value === "")
+        {checkSubmit.click();
+        return;};
+    
+    
+    let result = [];
+
+}
+
+sendBookButton.addEventListener("click", sendBook);
+
 
 
 /* OK END */
