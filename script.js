@@ -127,8 +127,12 @@ favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedF
 
 
 
+/* TEST TAKE DATA FROM FORM */
+
+const formData = document.querySelector("#test");
 
 
+/* OK END */
 
 
 /* CONSOLE TEST  */
