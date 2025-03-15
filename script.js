@@ -60,6 +60,16 @@ Book.prototype.storeRate = function(value){
     this.rate = value;
 };
 
+Book.prototype.storeCover = function(path){
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(path);
+    fileReader.addEventListener("load", (e) => {
+        this.cover = {};
+        this.cover.src = e.target.result;
+        this.cover.alt = "book cover";
+        this.cover.height = "100px";
+    });
+};
 
 function addBookToLibrary() {
     // take parameters
@@ -122,7 +132,6 @@ function displayArray(array){
 
 
 };
-
 
 function getImgData(){
     const files = chooseCover.files[0];
