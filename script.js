@@ -1,3 +1,5 @@
+/* VARIABLES */
+
 const libraryDisplay = document.querySelector("#libraryDisplay");
 
 const newBookButton = document.querySelector("#createNewBook");
@@ -17,8 +19,13 @@ const favIcon = document.querySelector("#favIcon");
 
 const closeForm = document.querySelector("#closeForm");
 
+const formData = document.querySelector("#formData");
+const sendBookButton = document.querySelector("#sendBookButton");
+const checkSubmit = document.querySelector("#submit");
 
 myLibrary = [];
+
+/* OBJECT AND PROTOTYPE */
 
 const Book = function(title, author, pages){
     this.title = title;
@@ -70,6 +77,43 @@ Book.prototype.storeCover = function(path){
         this.cover.height = "100px";
     });
 };
+
+/* FUNCTIONS PART */
+
+
+const sendBookData = function(event){
+
+    event.preventDefault();
+
+
+    if (formData.title.value === "" || 
+        formData.author.value === "" || 
+        formData.pages.value === "")
+        {checkSubmit.click();
+        return;};
+    
+    
+    let result = {};
+
+    result.title = formData.title.value;
+    result.author = formData.author.value;
+    result.pages = formData.pages.value;
+    if (!formData.editor.value === ""){result.editor = formData.editor.value};
+    if (!formData.parutionDate.value === "") {result.parutionDate = formData.parutionDate.value};
+    if (!formData.format.value === "") {result.format = formData.format.value};
+    if (!formData.comment.value === "") {result.comment = formData.comment.value};
+    if (!formData.rate.value === "") {result.rate = formData.rate.value};
+
+
+    if (formData.readOrNot.checked) {console.log("toggle function when book is created")};
+    if (formData.favorite.checked) {console.log("toggle function when book is created")};
+    if (!chooseCover.value === "") {console.log("toggle function when book is created")};
+    
+    addBookToLibrary(result);
+
+
+};
+
 
 function addBookToLibrary(object) {
     //Create new book
@@ -125,7 +169,7 @@ function displayArray(array){
         libraryDisplay.appendChild(bookCard);
     });
 
-
+    
 };
 
 function getImgData(){
@@ -142,13 +186,8 @@ function getImgData(){
     });
 };
 
-const book1 = new Book("1984","George Orwell", 391);
-const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
-const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
-book1.generateId(); book2.generateId(); book3.generateId();
 
-myLibrary.push(book1, book2, book3);
-
+/* EVENT LISTENER PART */
 
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
 closeForm.addEventListener("click", () => {newBookForm.close()})
@@ -158,55 +197,18 @@ chooseCover.addEventListener("change", () => {getImgData();});
 
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
 favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")});
-
-
-
-/* TEST TAKE DATA FROM FORM */
-
-const formData = document.querySelector("#formData");
-const sendBookButton = document.querySelector("#sendBookButton");
-const checkSubmit = document.querySelector("#submit");
-
-const sendBookData = function(event){
-
-    event.preventDefault();
-
-
-    if (formData.title.value === "" || 
-        formData.author.value === "" || 
-        formData.pages.value === "")
-        {checkSubmit.click();
-        return;};
-    
-    
-    let result = {};
-
-    result.title = formData.title.value;
-    result.author = formData.author.value;
-    result.pages = formData.pages.value;
-    if (!formData.editor.value === ""){result.editor = formData.editor.value};
-    if (!formData.parutionDate.value === "") {result.parutionDate = formData.parutionDate.value};
-    if (!formData.format.value === "") {result.format = formData.format.value};
-    if (!formData.comment.value === "") {result.comment = formData.comment.value};
-    if (!formData.rate.value === "") {result.rate = formData.rate.value};
-
-
-    if (formData.readOrNot.checked) {console.log("toggle function when book is created")};
-    if (formData.favorite.checked) {console.log("toggle function when book is created")};
-    if (!chooseCover.value === "") {console.log("toggle function when book is created")};
-    
-    addBookToLibrary(result);
-
-
-};
-
 sendBookButton.addEventListener("click", sendBookData);
 
 
-
-/* OK END */
-
-
 /* CONSOLE TEST  */
+
+
+const book1 = new Book("1984","George Orwell", 391);
+const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
+const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
+book1.generateId(); book2.generateId(); book3.generateId();
+
+myLibrary.push(book1, book2, book3);
+
 displayArray(myLibrary);
 console.log(myLibrary);
