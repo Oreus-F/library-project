@@ -71,14 +71,9 @@ Book.prototype.storeCover = function(path){
     });
 };
 
-function addBookToLibrary() {
-    // take parameters
-    let title = prompt("Title ?");
-    let author = prompt("Author ?");
-    let pages = prompt("Pages ?");
-
+function addBookToLibrary(object) {
     //Create new book
-    const book = new Book(title, author, pages);
+    const book = new Book(object.title, object.author, object.pages);
     book.generateId();
     
     //add it to library
@@ -172,7 +167,7 @@ const formData = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
-const sendBook = function(event){
+const sendBookData = function(event){
 
     event.preventDefault();
 
@@ -185,11 +180,27 @@ const sendBook = function(event){
     
     
     let result = {};
-    result.title 
 
-}
+    result.title = formData.title.value;
+    result.author = formData.author.value;
+    result.pages = formData.pages.value;
+    if (!formData.editor.value === ""){result.editor = formData.editor.value};
+    if (!formData.parutionDate.value === "") {result.parutionDate = formData.parutionDate.value};
+    if (!formData.format.value === "") {result.format = formData.format.value};
+    if (!formData.comment.value === "") {result.comment = formData.comment.value};
+    if (!formData.rate.value === "") {result.rate = formData.rate.value};
 
-sendBookButton.addEventListener("click", sendBook);
+
+    if (formData.readOrNot.checked) {console.log("toggle function when book is created")};
+    if (formData.favorite.checked) {console.log("toggle function when book is created")};
+    if (!chooseCover.value === "") {console.log("toggle function when book is created")};
+    
+    addBookToLibrary(result);
+
+
+};
+
+sendBookButton.addEventListener("click", sendBookData);
 
 
 
