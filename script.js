@@ -201,7 +201,10 @@ function getImgData(){
 /* EVENT LISTENER PART */
 
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
-closeForm.addEventListener("click", () => {newBookForm.close()})
+closeForm.addEventListener("click", () => {
+    if (readIcon.classList.value === "checkedRead"){readIcon.classList.toggle("checkedRead")};
+    if (favIcon.classList.value === "checkedFav") {favIcon.classList.toggle("checkedFav")};
+    newBookForm.close()});
 
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 chooseCover.addEventListener("change", () => {getImgData();});
