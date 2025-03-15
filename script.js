@@ -74,7 +74,7 @@ Book.prototype.storeCover = function(path){
         this.cover = {};
         this.cover.src = e.target.result;
         this.cover.alt = "book cover";
-        this.cover.height = "100px";
+        this.cover.height = "100";
     });
 };
 
@@ -147,9 +147,22 @@ function displayArray(array){
         bookCard.classList.add("card");
 
         const img = document.createElement("img");
-        img.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
-        img.setAttribute("alt", "No cover founded");
-        bookCard.appendChild(img);
+
+        if (item.cover !== undefined){
+            console.log(item.cover + "should have a cover");
+            img.src = item.cover.src;
+            img.height = item.cover.height;
+            img.alt = item.cover.alt;
+            bookCard.appendChild(img);
+
+        } else {
+            console.log(item.cover + "should have the placeholder")
+            img.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
+            img.setAttribute("alt", "No cover founded");
+            bookCard.appendChild(img);
+        };
+
+        /* DECOUVRIR POURQUOI L'IMAGE NE S'ACTUALISE PAS */
 
         const title = document.createElement("p");
         title.textContent = item.title;
