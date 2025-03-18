@@ -69,17 +69,11 @@ Book.prototype.storeRate = function(value){
 };
 
 Book.prototype.storeCover = function(path){
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(path);
-    fileReader.addEventListener("load", (e) => {
-        this.cover = {};
-        this.cover.src = e.target.result;
-        this.cover.alt = "book cover";
-        this.cover.height = "100";
-    });
+    this.cover = path;
 };
 
 /* FUNCTIONS PART */
+
 
 
 const sendBookData = function(event){
@@ -87,11 +81,11 @@ const sendBookData = function(event){
     event.preventDefault();
 
 
-    if (formData.title.value === "" || 
+/*     if (formData.title.value === "" || 
         formData.author.value === "" || 
         formData.pages.value === "")
         {checkSubmit.click();
-        return;};
+        return;}; */
     
     
     let result = {};
@@ -124,7 +118,17 @@ function addBookToLibrary(object) {
     if (object.format !== undefined){book.storeFormat(object.format)};
     if (object.readOrNot !== undefined){book.toggleRead()};
     if (object.favorite !== undefined){book.toggleFavorite()};
-    if (object.cover !== undefined){book.storeCover(chooseCover.files[0])};
+
+
+    if (object.cover !== undefined){
+        const path = readFile(chooseCover.files[0])
+        book.storeCover(path);
+    };
+
+
+
+
+
     if (object.comment !== undefined){book.storeComment(object.comment)};
     if (object.rate !== undefined){book.storeRate(object.rate)};
 
@@ -137,6 +141,27 @@ function addBookToLibrary(object) {
     displayArray(myLibrary)
 
 }
+
+
+/* TEST */
+
+
+function testStorageCover(path){
+    return new Promise ((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.onload = () => resolve(fileReader.result);
+        fileReader.readAsDataURL(path)
+    })
+}
+
+function readFile(path){
+    testStorageCover(path).then(result => );
+};
+
+
+/* FIN TEST */
+
+
 
 function displayArray(array){
 
@@ -151,9 +176,7 @@ function displayArray(array){
 
         if (item.cover !== undefined){
             console.log(item.cover + "should have a cover");
-            img.src = item.cover.src;
-            img.height = item.cover.height;
-            img.alt = item.cover.alt;
+            img.src = item.cover
             bookCard.appendChild(img);
 
         } else {
