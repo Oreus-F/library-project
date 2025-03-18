@@ -205,7 +205,7 @@ function getImgData(){
         const image = document.createElement("img");
         image.src = e.target.result;
         image.alt = "book cover";
-        image.height = 100
+        image.classList.toggle("previewImg");
         previewCover.appendChild(image);
     });
 };
@@ -218,7 +218,7 @@ function resetForm() {
     const image = document.createElement("img");
     image.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
     image.setAttribute("alt", "no book cover found");
-    image.setAttribute("width", "100");
+    image.classList.toggle("previewImg");
     previewCover.appendChild(image);
 }
 
