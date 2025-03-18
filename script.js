@@ -24,6 +24,7 @@ const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
 const myLibrary = [];
+let countLibrary = 0;
 
 /* OBJECT AND PROTOTYPE */
 
@@ -133,15 +134,15 @@ function addBookToLibrary(object) {
     
     //add it to library
     myLibrary.push(book);
+    displayArray(myLibrary)
 
-/*     displayArray(myLibrary); */
 }
 
 function displayArray(array){
 
     libraryDisplay.replaceChildren();
 
-    array.forEach(item => {
+    array.forEach((item) => {
 
         const bookCard = document.createElement("div");
         bookCard.classList.add("card");
@@ -246,6 +247,7 @@ const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
 book1.generateId(); book2.generateId(); book3.generateId();
+
 
 myLibrary.push(book1, book2, book3);
 
