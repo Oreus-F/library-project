@@ -23,7 +23,7 @@ const formData = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
-myLibrary = [];
+const myLibrary = [];
 
 /* OBJECT AND PROTOTYPE */
 
