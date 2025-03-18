@@ -134,7 +134,7 @@ function addBookToLibrary(object) {
     //add it to library
     myLibrary.push(book);
 
-    displayArray(myLibrary);
+/*     displayArray(myLibrary); */
 }
 
 function displayArray(array){
@@ -211,12 +211,22 @@ function getImgData(){
 };
 
 
+function resetForm() {
+    if (readIcon.classList.value === "checkedRead"){readIcon.classList.toggle("checkedRead")};
+    if (favIcon.classList.value === "checkedFav") {favIcon.classList.toggle("checkedFav")};
+    previewCover.replaceChildren();
+    const image = document.createElement("img");
+    image.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
+    image.setAttribute("alt", "no book cover found");
+    image.setAttribute("width", "100");
+    previewCover.appendChild(image);
+}
+
 /* EVENT LISTENER PART */
 
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
 closeForm.addEventListener("click", () => {
-    if (readIcon.classList.value === "checkedRead"){readIcon.classList.toggle("checkedRead")};
-    if (favIcon.classList.value === "checkedFav") {favIcon.classList.toggle("checkedFav")};
+    resetForm();
     newBookForm.close()});
 
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
@@ -224,7 +234,9 @@ chooseCover.addEventListener("change", () => {getImgData();});
 
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
 favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")});
+
 sendBookButton.addEventListener("click", sendBookData);
+
 
 
 /* CONSOLE TEST  */
