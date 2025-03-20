@@ -23,8 +23,8 @@ const formData = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
+
 const myLibrary = [];
-let countLibrary = 0;
 
 /* OBJECT AND PROTOTYPE */
 
@@ -68,15 +68,9 @@ Book.prototype.storeRate = function(value){
     this.rate = value;
 };
 
-Book.prototype.storeCover = function(path){
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(path);
-    fileReader.addEventListener("load", (e) => {
-        this.cover = {};
-        this.cover.src = e.target.result;
-        this.cover.alt = "book cover";
-        this.cover.height = "100";
-    });
+Book.prototype.storeCover = function(){
+    const previewImg = document.querySelector(".previewImg");
+    this.cover = previewImg.src;
 };
 
 /* FUNCTIONS PART */
@@ -124,7 +118,7 @@ function addBookToLibrary(object) {
     if (object.format !== undefined){book.storeFormat(object.format)};
     if (object.readOrNot !== undefined){book.toggleRead()};
     if (object.favorite !== undefined){book.toggleFavorite()};
-    if (object.cover !== undefined){book.storeCover(chooseCover.files[0])};
+    if (object.cover !== undefined){book.storeCover()};
     if (object.comment !== undefined){book.storeComment(object.comment)};
     if (object.rate !== undefined){book.storeRate(object.rate)};
 
@@ -150,14 +144,12 @@ function displayArray(array){
         const img = document.createElement("img");
 
         if (item.cover !== undefined){
-            console.log(item.cover + "should have a cover");
-            img.src = item.cover.src;
-            img.height = item.cover.height;
-            img.alt = item.cover.alt;
+            console.log(item.cover + " should have a cover");
+            img.src = item.cover;
             bookCard.appendChild(img);
 
         } else {
-            console.log(item.cover + "should have the placeholder")
+            console.log(item.cover + " should have the placeholder")
             img.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
             img.setAttribute("alt", "No cover founded");
             bookCard.appendChild(img);
@@ -193,6 +185,8 @@ function displayArray(array){
 
         libraryDisplay.appendChild(bookCard);
     });
+
+    console.log(myLibrary[3]);
 
     
 };
