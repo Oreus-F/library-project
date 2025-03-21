@@ -224,7 +224,12 @@ formDataPanel.addEventListener("submit", sendBookData);
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
-book1.generateId(); book2.generateId(); book3.generateId();
+book1.generateId();
+book2.generateId(); 
+book3.generateId();
+book1.cover = "assets/images/1984_cover.jpg";
+book2.cover = "assets/images/LOTR_cover.jpg";
+book3.cover = "assets/images/theManInTheHighCastle.jpg";
 
 
 
