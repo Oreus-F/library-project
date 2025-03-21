@@ -141,17 +141,15 @@ function displayArray(array){
         const bookCard = document.createElement("div");
         bookCard.classList.add("card");
 
-        const img = document.createElement("img");
+        const img = new Image();
 
         if (item.cover !== undefined){
-            console.log(item.cover + " should have a cover");
             img.src = item.cover;
+            img.alt = "book cover"
             bookCard.appendChild(img);
-
         } else {
-            console.log(item.cover + " should have the placeholder")
-            img.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
-            img.setAttribute("alt", "No cover founded");
+            img.src = "assets/images/No-Image-Placeholder.svg.png";
+            img.alt = "No cover founded";
             bookCard.appendChild(img);
         };
 
@@ -197,7 +195,7 @@ function getImgData(){
     fileReader.readAsDataURL(files);
     fileReader.addEventListener("load", (e) => {
         previewCover.replaceChildren();
-        const image = document.createElement("img");
+        const image = new Image();
         image.src = e.target.result;
         image.alt = "book cover";
         image.classList.toggle("previewImg");
@@ -210,9 +208,9 @@ function resetForm() {
     if (readIcon.classList.value === "checkedRead"){readIcon.classList.toggle("checkedRead")};
     if (favIcon.classList.value === "checkedFav") {favIcon.classList.toggle("checkedFav")};
     previewCover.replaceChildren();
-    const image = document.createElement("img");
-    image.setAttribute("src", "assets/images/No-Image-Placeholder.svg.png");
-    image.setAttribute("alt", "no book cover found");
+    const image = new Image();
+    image.src = "assets/images/No-Image-Placeholder.svg.png";
+    image.alt = "no book cover found";
     image.classList.toggle("previewImg");
     previewCover.appendChild(image);
 }
