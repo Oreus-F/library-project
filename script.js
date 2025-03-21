@@ -140,20 +140,23 @@ function displayArray(array){
             bookCard.appendChild(img);
         };
 
-        /* DECOUVRIR POURQUOI L'IMAGE NE S'ACTUALISE PAS */
-
+        // créer le titre
         const title = document.createElement("p");
         title.textContent = item.title;
         bookCard.appendChild(title);
 
+        // créer l'auteur
         const author = document.createElement("p");
         author.textContent = "by " + item.author;
         bookCard.appendChild(author);
 
+        // créer le nombre de pages
         const pages = document.createElement("p");
         pages.textContent = item.pages + " pages";
         bookCard.appendChild(pages);
 
+        // créer checkbox for read
+        // NEED TO BE CHANGED TO BE AN UNIQUE ONE
         const pRead = document.createElement("p");
 
         const label = document.createElement("label");
@@ -167,6 +170,9 @@ function displayArray(array){
         checkbox.setAttribute("id", "read");
         pRead.appendChild(checkbox);
         bookCard.appendChild(pRead);
+
+        // Associate Card with Item ID
+        bookCard.setAttribute("data-id", item.id);
 
         libraryDisplay.appendChild(bookCard);
     });
@@ -237,3 +243,6 @@ myLibrary.push(book1, book2, book3);
 
 displayArray(myLibrary);
 console.log(myLibrary);
+
+
+
