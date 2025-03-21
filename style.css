@@ -137,6 +137,7 @@ body, html {
 .card > p:nth-child(2){
     grid-area: title;
     font-weight: bold;
+    font-size: 1.6rem;
 }
 
 .card > p:nth-child(3){
