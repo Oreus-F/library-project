@@ -171,6 +171,13 @@ function displayArray(array){
         pRead.appendChild(checkbox);
         bookCard.appendChild(pRead);
 
+
+        // Create edit / delete part
+        // INSERER SVG INSIDE DIV ET ENSUITE LES RENDRE INTERACTIFS
+        const interaction = document.createElement("div");
+
+
+
         // Associate Card with Item ID
         bookCard.setAttribute("data-id", item.id);
 
