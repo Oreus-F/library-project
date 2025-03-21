@@ -19,7 +19,7 @@ const favIcon = document.querySelector("#favIcon");
 
 const closeForm = document.querySelector("#closeForm");
 
-const formData = document.querySelector("#formData");
+const formDataPanel = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
@@ -81,30 +81,19 @@ const sendBookData = function(event){
     event.preventDefault();
 
 
-    if (formData.title.value === "" || 
-        formData.author.value === "" || 
-        formData.pages.value === "")
+    if (formDataPanel.title.value === "" || 
+        formDataPanel.author.value === "" || 
+        formDataPanel.pages.value === "")
         {checkSubmit.click();
-        return;};
+        return;
+    };
     
+
+    let formData = new FormData(event.target);
+    formData = Object.fromEntries(formData.entries())
     
-    let result = {};
 
-    result.title = formData.title.value;
-    result.author = formData.author.value;
-    result.pages = formData.pages.value;
-    if (!(formData.editor.value === "")){result.editor = formData.editor.value};
-    if (!(formData.parutionDate.value === "")) {result.parutionDate = formData.parutionDate.value};
-    if (!(formData.format.value === "")) {result.format = formData.format.value};
-    if (!(formData.comment.value === "")) {result.comment = formData.comment.value};
-    if (!(formData.rate.value === "")) {result.rate = formData.rate.value};
-
-
-    if (formData.readOrNot.checked) {result.readOrNot = true};
-    if (formData.favorite.checked) {result.favorite = true};
-    if (!(chooseCover.value === "")) {result.cover = true};
-    
-    addBookToLibrary(result);
+    addBookToLibrary(formData);
     closeForm.click();
 };
 
@@ -113,17 +102,15 @@ function addBookToLibrary(object) {
     //Create new book
     const book = new Book(object.title, object.author, Number(object.pages));
     book.generateId();
-    if (object.editor !== undefined){book.storeEditor(object.editor)};
-    if (object.parutionDate !== undefined){book.storeParutionDate(object.parutionDate)};
-    if (object.format !== undefined){book.storeFormat(object.format)};
-    if (object.readOrNot !== undefined){book.toggleRead()};
-    if (object.favorite !== undefined){book.toggleFavorite()};
-    if (object.cover !== undefined){book.storeCover()};
-    if (object.comment !== undefined){book.storeComment(object.comment)};
-    if (object.rate !== undefined){book.storeRate(object.rate)};
 
-    console.log(object);
-    console.log(book);
+    if (object.editor > 0){book.storeEditor(object.editor)};
+    if (object.parutionDate > 0){book.storeParutionDate(object.parutionDate)};
+    if (object.format > 0){book.storeFormat(object.format)};
+    if (object.readOrNot > 0){book.toggleRead()};
+    if (object.favorite > 0){book.toggleFavorite()};
+    if (object.cover !== undefined){book.storeCover()};
+    if (object.comment > 0){book.storeComment(object.comment)};
+    if (object.rate > 0){book.storeRate(object.rate)};
     
     
     //add it to library
@@ -184,8 +171,6 @@ function displayArray(array){
         libraryDisplay.appendChild(bookCard);
     });
 
-    console.log(myLibrary[3]);
-
     
 };
 
@@ -220,7 +205,8 @@ function resetForm() {
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
 closeForm.addEventListener("click", () => {
     resetForm();
-    newBookForm.close()});
+    newBookForm.close()
+});
 
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 chooseCover.addEventListener("change", () => {getImgData();});
@@ -228,7 +214,7 @@ chooseCover.addEventListener("change", () => {getImgData();});
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
 favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")});
 
-sendBookButton.addEventListener("click", sendBookData);
+formDataPanel.addEventListener("submit", sendBookData);
 
 
 
@@ -239,6 +225,7 @@ const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
 book1.generateId(); book2.generateId(); book3.generateId();
+
 
 
 myLibrary.push(book1, book2, book3);
