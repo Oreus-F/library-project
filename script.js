@@ -23,6 +23,8 @@ const formDataPanel = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
 const checkSubmit = document.querySelector("#submit");
 
+const template = document.querySelector(".template");
+
 
 const myLibrary = [];
 
@@ -125,61 +127,31 @@ function displayArray(array){
 
     array.forEach((item) => {
 
-        const bookCard = document.createElement("div");
-        bookCard.classList.add("card");
-
-        const img = new Image();
-
-        if (item.cover !== undefined){
-            img.src = item.cover;
-            img.alt = "book cover"
-            bookCard.appendChild(img);
-        } else {
-            img.src = "assets/images/No-Image-Placeholder.svg.png";
-            img.alt = "No cover founded";
-            bookCard.appendChild(img);
-        };
-
-        // créer le titre
-        const title = document.createElement("p");
-        title.textContent = item.title;
-        bookCard.appendChild(title);
-
-        // créer l'auteur
-        const author = document.createElement("p");
-        author.textContent = "by " + item.author;
-        bookCard.appendChild(author);
-
-        // créer le nombre de pages
-        const pages = document.createElement("p");
-        pages.textContent = item.pages + " pages";
-        bookCard.appendChild(pages);
-
-        // créer checkbox for read
-        // NEED TO BE CHANGED TO BE AN UNIQUE ONE
-        const pRead = document.createElement("p");
-
-        const label = document.createElement("label");
-        label.textContent = "Read : ";
-        label.setAttribute("for", "read");
-        pRead.appendChild(label);
-
-        const checkbox = document.createElement("input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("name", "read");
-        checkbox.setAttribute("id", "read");
-        pRead.appendChild(checkbox);
-        bookCard.appendChild(pRead);
-
-
-        // Create edit / delete part
-        // INSERER SVG INSIDE DIV ET ENSUITE LES RENDRE INTERACTIFS
-        const interaction = document.createElement("div");
-
-
-
-        // Associate Card with Item ID
+        const bookCard = template.cloneNode(true);
         bookCard.setAttribute("data-id", item.id);
+
+        bookCard.classList.toggle("template");
+        
+        const elements = bookCard.children;
+
+        // cover
+        elements[0].src = item.cover;
+        elements[0].alt = `${item.title} book cover`;
+
+        // title
+        elements[1].textContent = item.title;
+
+        // author
+        elements[2].textContent = `by ${item.author}`;
+
+        // pages
+        elements[3].textContent = `${item.pages} pages`;
+
+        // read checkbok (penser a mettre les liens)
+
+
+        // DIV with ICON (penser à mettre les intéractions)
+
 
         libraryDisplay.appendChild(bookCard);
     });

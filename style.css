@@ -122,8 +122,8 @@ body, html {
     grid-template-areas: 
     "img title title"
     "img author author"
-    "img pages read"
-    "img . edit";
+    "img pages ."
+    "img read edit";
     gap: 12px;
 
 }
@@ -153,6 +153,35 @@ body, html {
 .card > p:nth-child(5){
     grid-area: read;
 }
+
+.card > div:last-child{
+    grid-area: edit;
+    display: grid;
+    grid-template-columns: 1fr 50px 50px;
+    justify-items: center;
+}
+
+.card > div:last-child > svg:first-child{
+    grid-column: 2/3;
+}
+
+.card > div:last-child > svg:first-child:hover{
+    fill: lightgrey;
+}
+
+.card > div:last-child > svg:last-child{
+    grid-column: 3/4;
+}
+
+.card > div:last-child > svg:last-child:hover{
+    fill: lightgray;
+}
+
+.template{
+    display: none;
+}
+
+/* DIALOG FORM */
 
 #newBookForm{
     margin: 0;
@@ -421,3 +450,5 @@ input[type="number"]{
 #submit{
     display: none;
 }
+
+
