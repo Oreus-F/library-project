@@ -158,8 +158,10 @@ function displayArray(array){
         editIcon.addEventListener("click", () => {console.log(editIcon)});
 
         deleteIcon.addEventListener("click", () => {
-            libraryDisplay.removeChild(bookCard);
-            deleteFromLibrary(myLibrary, id);
+            if (window.confirm(`Do you really want to delete this book from your library ?`)){
+                libraryDisplay.removeChild(bookCard);
+                deleteFromLibrary(myLibrary, id);
+            }
         })
 
 
