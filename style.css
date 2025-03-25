@@ -124,7 +124,7 @@ body, html {
     "img author author"
     "img pages ."
     "img read edit";
-    gap: 12px;
+    gap: 0.4rem;
 
 }
 
@@ -158,23 +158,36 @@ body, html {
     grid-area: edit;
     display: grid;
     grid-template-columns: 1fr 50px 50px;
-    justify-items: center;
+    position: relative;
 }
 
-.card > div:last-child > svg:first-child{
+.card > div:last-child > span:first-child{
     grid-column: 2/3;
+
 }
 
-.card > div:last-child > svg:first-child:hover{
-    fill: lightgrey;
-}
-
-.card > div:last-child > svg:last-child{
+.card > div:last-child > span:last-child{
     grid-column: 3/4;
 }
 
-.card > div:last-child > svg:last-child:hover{
+.card > div:last-child > span:last-child:hover > svg,
+.card > div:last-child > span:first-child:hover > svg{
     fill: lightgray;
+
+
+}
+
+.card > div:last-child > span:first-child,
+.card > div:last-child > span:last-child{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+
+    display: grid;
+    justify-content: center;
 }
 
 .template{
