@@ -175,6 +175,7 @@ function displayArray(array){
         const deleteIcon = elements[5].lastElementChild;
 
         editIcon.addEventListener("click", () => {
+            showEditBookData(id, myLibrary);
             editBookForm.showModal();
         });
 
@@ -275,10 +276,54 @@ function changeReadStatus(array, id){
     });
 };
 
-function showBookData(form, id, array){
+function showEditBookData(id, array){
+
+    const values = editFormData.children;
+    const panelValue = extraEditPanel.children;
+
     array.forEach((book) => {
         if (id === book.id){
-            console.log("ok")
+
+            // title
+            values[1].lastElementChild.value = book.title;
+
+            // author
+            values[2].lastElementChild.value = book.author;
+
+            // pages
+            values[3].lastElementChild.value = book.pages;
+
+            // editor
+            if (book.editor !== undefined){values[4].lastElementChild.value = book.editor};
+
+            // Parution Date
+            if (book.parutionDate !== undefined){panelValue[0].lastElementChild.value = book.parutionDate};
+
+            // format
+            if (book.format !== undefined){panelValue[1].lastElementChild.value = book.format};
+
+            // Read 
+            if (book.read) {
+                panelValue[2].lastElementChild.checked = true;
+                readEditIcon.classList.toggle("checkedRead");
+            };
+            
+            
+            // Favorite
+            if (book.favorite) {
+                panelValue[3].lastElementChild.checked = true;
+                favEditIcon.classList.toggle("checkedFav");
+            };
+
+            // PreviewImg
+            if (book.cover) {
+                previewEditCover.replaceChildren();
+                const image = new Image();
+                image.src = book.cover;
+                image.alt = `${book.title} book cover`;
+                image.classList.toggle("previewImg");
+                previewEditCover.appendChild(image);
+            };
         }
     })
 }
@@ -324,6 +369,9 @@ book1.cover = "assets/images/1984_cover.jpg";
 book2.cover = "assets/images/LOTR_cover.jpg";
 book3.cover = "assets/images/theManInTheHighCastle.jpg";
 book1.toggleRead();
+book2.storeEditor("CHRISTIAN BOURGOIS EDITEUR");
+book3.storeFormat("pin");
+
 
 
 
