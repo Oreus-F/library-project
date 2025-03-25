@@ -129,6 +129,7 @@ function displayArray(array){
 
         const bookCard = template.cloneNode(true);
         bookCard.setAttribute("data-id", item.id);
+        const id = item.id;
 
         bookCard.classList.toggle("template");
         
@@ -151,7 +152,29 @@ function displayArray(array){
 
 
         // DIV with ICON (penser à mettre les intéractions)
+        const editIcon = elements[5].firstElementChild;
+        const deleteIcon = elements[5].lastElementChild;
+        bookCard.addEventListener("click", (e) => {
+            
+            let target = e.target;
 
+            switch(target){
+
+                case editIcon:
+                    console.log("next move");
+                    break;
+
+
+                case deleteIcon:
+                    libraryDisplay.removeChild(bookCard);
+                    deleteFromLibrary(myLibrary, id);
+                    console.log(myLibrary);
+                    break;
+            };
+
+
+
+        });
 
         libraryDisplay.appendChild(bookCard);
     });
@@ -184,6 +207,14 @@ function resetForm() {
     image.classList.toggle("previewImg");
     previewCover.appendChild(image);
 }
+
+function deleteFromLibrary(array, id){
+    array.forEach((item) => {
+        if (id === item.id){
+            array.splice(item, 1);
+        };
+    });
+};
 
 /* EVENT LISTENER PART */
 
