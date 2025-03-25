@@ -231,9 +231,9 @@
         <dialog id="editBookForm">
 
             
-            <form action="" method="" id="formData">
+            <form action="" method="" id="editFormData">
                 
-                <button type="button"  id="closeEditForm">&#10005</button>                
+                <button type="reset"  id="closeEditForm">&#10005</button>                
                 
 
                 <p>
@@ -260,9 +260,9 @@
 
                 <div class="moreInformation">
 
-                    <button type="button" id="toggle-panel">More informations</button>
+                    <button type="button" id="toggle-EditPanel">More informations</button>
 
-                    <div class="extraInfoPanel">
+                    <div class="extraInfoPanel edit">
 
 
                         <p>
@@ -284,32 +284,32 @@
                         </p>
 
                         <p>
-                            <label for="readOrNot">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#1f1f1f" id="readIcon">
+                            <label for="readEdit">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#1f1f1f" id="readEditIcon">
                                     <path d="m438-400 198-198-57-56-141 141-57-57-57 57 114 113ZM200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/>
                                 </svg>
                                 <span>Read</span>
                             </label>
-                            <input type="checkbox" id="readOrNot" name="readOrNot">
+                            <input type="checkbox" id="readEdit" name="readOrNot">
                         </p>
                         <p>
-                            <label for="favorite">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#1f1f1f" id="favIcon">
+                            <label for="favoriteEdit">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#1f1f1f" id="favEditIcon">
                                     <path d="M480-388q51-47 82.5-77.5T611-518q17-22 23-38.5t6-35.5q0-36-26-62t-62-26q-21 0-40.5 8.5T480-648q-12-15-31-23.5t-41-8.5q-36 0-62 26t-26 62q0 19 5.5 35t22.5 38q17 22 48 52.5t84 78.5ZM200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/>
                                 </svg>
                                 <span>Favorite</span>
                             </label>
 
-                            <input type="checkbox" id="favorite" name="favorite" >
+                            <input type="checkbox" id="favoriteEdit" name="favorite" >
                         </p>
 
-                        <div id="preview">
+                        <div id="editPreview">
                             <img src="assets/images/No-Image-Placeholder.svg.png" alt="No book cover" class="previewImg">
                         </div>
 
                         <p>
-                            <label for="chooseCover">Choose a cover</label>
-                            <input type="file" name="cover" id="chooseCover" accept="image/*"   >
+                            <label for="editCover">Choose a cover</label>
+                            <input type="file" name="cover" id="editCover" accept="image/*"   >
                         </p>
                     </div>
 
@@ -318,16 +318,16 @@
 
             
                 <p class="rate">
-                    <input type="radio" id="star5" name="rate" value="5">
-                    <label for="star5" title="5/5">&#9733</label>
-                    <input type="radio" id="star4" name="rate" value="4">
-                    <label for="star4" title="4/5">&#9733</label>
-                    <input type="radio" id="star3" name="rate" value="3">
-                    <label for="star3" title="3/5">&#9733</label>
-                    <input type="radio" id="star2" name="rate" value="2">
-                    <label for="star2" title="2/5">&#9733</label>
-                    <input type="radio" id="star1" name="rate" value="1">
-                    <label for="star1" title="1/5">&#9733</label>
+                    <input type="radio" id="starEdit5" name="rate" value="5">
+                    <label for="starEdit5" title="5/5">&#9733</label>
+                    <input type="radio" id="starEdit4" name="rate" value="4">
+                    <label for="starEdit4" title="4/5">&#9733</label>
+                    <input type="radio" id="starEdit3" name="rate" value="3">
+                    <label for="starEdit3" title="3/5">&#9733</label>
+                    <input type="radio" id="starEdit2" name="rate" value="2">
+                    <label for="starEdit2" title="2/5">&#9733</label>
+                    <input type="radio" id="starEdit1" name="rate" value="1">
+                    <label for="starEdit1" title="1/5">&#9733</label>
                 </p>
 
                 <p>
@@ -337,7 +337,7 @@
 
 
 
-                <button id="sendBookButton">New Book</button>
+                <button id="editBookButton">Edit Book</button>
             
 
                 <input type="submit" name="submit" id="submit">
