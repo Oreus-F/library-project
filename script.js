@@ -7,6 +7,7 @@ const togglePanelButton = document.querySelector("#toggle-panel");
 
 const newBookForm = document.querySelector("#newBookForm");
 const extraPanel = document.querySelector(".extraInfoPanel");
+const editBookForm = document.querySelector("#editBookForm");
 
 
 const previewCover = document.querySelector("#preview");
@@ -154,7 +155,7 @@ function displayArray(array){
         if (item.read) {checkRead.checked = true};
         
         checkRead.addEventListener("change", () => {
-            changeReadStatus();
+            changeReadStatus(myLibrary, id);
         });
 
         // DIV with ICON (penser à mettre les intéractions)
@@ -214,10 +215,7 @@ function deleteFromLibrary(array, id){
 function changeReadStatus(array, id){
     array.forEach((item) => {
         if (id === item.id){
-            console.log(item.id);
-            console.log(id)
             item.toggleRead();
-            console.log(item);
         };
     });
 };
