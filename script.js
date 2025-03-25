@@ -154,27 +154,14 @@ function displayArray(array){
         // DIV with ICON (penser à mettre les intéractions)
         const editIcon = elements[5].firstElementChild;
         const deleteIcon = elements[5].lastElementChild;
-        bookCard.addEventListener("click", (e) => {
-            
-            let target = e.target;
 
-            switch(target){
+        editIcon.addEventListener("click", () => {console.log(editIcon)});
 
-                case editIcon:
-                    console.log("next move");
-                    break;
+        deleteIcon.addEventListener("click", () => {
+            libraryDisplay.removeChild(bookCard);
+            deleteFromLibrary(myLibrary, id);
+        })
 
-
-                case deleteIcon:
-                    libraryDisplay.removeChild(bookCard);
-                    deleteFromLibrary(myLibrary, id);
-                    console.log(myLibrary);
-                    break;
-            };
-
-
-
-        });
 
         libraryDisplay.appendChild(bookCard);
     });
