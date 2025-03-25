@@ -196,7 +196,8 @@ body, html {
 
 /* DIALOG FORM */
 
-#newBookForm{
+#newBookForm,
+#editBookForm{
     margin: 0;
     left: 50%;
     top: 50%;
@@ -211,7 +212,8 @@ body, html {
 
 }
 
-#newBookForm form {
+#newBookForm form,
+#editBookForm form {
     
     max-width: 100%;
 
@@ -228,12 +230,14 @@ body, html {
 
 
 
-#newBookForm form > div:first-child{
+#newBookForm form > div:first-child,
+#editBookForm form > div:first-child{
     grid-column: 1/3;
 }
 
 
-#newBookForm form > p:nth-child(-n+5) {
+#newBookForm form > p:nth-child(-n+5),
+#editBookForm form  > p:nth-child(-n+5) {
     display: grid;
     grid-template-rows: 20px 1fr;
     row-gap: 6px;
@@ -242,6 +246,7 @@ body, html {
 }
 
 #newBookForm form > p:nth-child(-n+5) > input,
+#editBookForm form > p:nth-child(-n+5) > input,
 .extraInfoPanel > p:nth-child(1) > input,
 .extraInfoPanel > p:nth-child(2) > select {
     height: 35px;
@@ -258,7 +263,6 @@ body, html {
     width: 100%;
 
     display: flex;
-    justify-content: baseline;
     align-items: center;
     padding-left: 12px;
 }
@@ -331,13 +335,15 @@ body, html {
 }
 
 
-#newBookForm form > p:nth-last-child(3){
+#newBookForm form > p:nth-last-child(3),
+#editBookForm form > p:nth-last-child(3){
     display: grid;
     grid-column: 1/3;
     
 }
 
-#newBookForm form  textarea{
+#newBookForm form  textarea,
+#editBookForm form textarea{
     resize: none;
     padding: 6px;
 
@@ -439,7 +445,8 @@ input[type="number"]{
     -moz-animation: none;
 }
 
-#closeForm {
+#closeForm,
+#closeEditForm {
     position: fixed;
     top: 2%;
     right: 5%;
@@ -450,12 +457,14 @@ input[type="number"]{
     background-color: transparent;
 }
 
-#closeForm:hover{
+#closeForm:hover,
+#closeEditForm:hover {
     background-color: #dddddd;
     transition: 400ms;
 }
 
-#closeForm:active{
+#closeForm:active
+#closeEditForm:active{
     border: none;
     background-color: #d0d0d0;
 }

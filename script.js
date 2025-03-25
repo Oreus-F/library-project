@@ -19,6 +19,7 @@ const readIcon = document.querySelector("#readIcon");
 const favIcon = document.querySelector("#favIcon");
 
 const closeForm = document.querySelector("#closeForm");
+const closeEditForm = document.querySelector("#closeEditForm");
 
 const formDataPanel = document.querySelector("#formData");
 const sendBookButton = document.querySelector("#sendBookButton");
@@ -162,7 +163,9 @@ function displayArray(array){
         const editIcon = elements[5].firstElementChild;
         const deleteIcon = elements[5].lastElementChild;
 
-        editIcon.addEventListener("click", () => {console.log(editIcon)});
+        editIcon.addEventListener("click", () => {
+            editBookForm.showModal();
+        });
 
         deleteIcon.addEventListener("click", () => {
             if (window.confirm(`Do you really want to delete this book from your library ?`)){
@@ -227,6 +230,10 @@ closeForm.addEventListener("click", () => {
     resetForm();
     newBookForm.close()
 });
+
+closeEditForm.addEventListener("click", () => {
+    // need checkpoint if values changes
+    editBookForm.close()});
 
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 chooseCover.addEventListener("change", () => {getImgData();});
