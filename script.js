@@ -149,7 +149,13 @@ function displayArray(array){
         elements[3].textContent = `${item.pages} pages`;
 
         // read checkbok (penser a mettre les liens)
+        const checkRead = elements[4].lastElementChild;
 
+        if (item.read) {checkRead.checked = true};
+        
+        checkRead.addEventListener("change", () => {
+            changeReadStatus();
+        });
 
         // DIV with ICON (penser à mettre les intéractions)
         const editIcon = elements[5].firstElementChild;
@@ -205,6 +211,17 @@ function deleteFromLibrary(array, id){
     });
 };
 
+function changeReadStatus(array, id){
+    array.forEach((item) => {
+        if (id === item.id){
+            console.log(item.id);
+            console.log(id)
+            item.toggleRead();
+            console.log(item);
+        };
+    });
+};
+
 /* EVENT LISTENER PART */
 
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
@@ -235,6 +252,7 @@ book3.generateId();
 book1.cover = "assets/images/1984_cover.jpg";
 book2.cover = "assets/images/LOTR_cover.jpg";
 book3.cover = "assets/images/theManInTheHighCastle.jpg";
+book1.toggleRead();
 
 
 
