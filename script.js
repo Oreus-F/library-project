@@ -390,7 +390,7 @@ function showEditBookData(id, array){
                 };
 
                 for (const value in rateValue){
-                    if (book.value === value){rate.value.click()}
+                    if (book.rate === value){rate[value].click()}
                 }
 
             }
