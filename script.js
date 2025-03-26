@@ -93,16 +93,7 @@ Book.prototype.storeCover = function(){
 
 const sendBookData = function(event){
 
-    event.preventDefault();
-
-
-    if (formDataPanel.title.value === "" || 
-        formDataPanel.author.value === "" || 
-        formDataPanel.pages.value === "")
-        {checkSubmit.click();
-        return;
-    };
-    
+    event.preventDefault();    
 
     let formData = new FormData(event.target);
     formData = Object.fromEntries(formData.entries())

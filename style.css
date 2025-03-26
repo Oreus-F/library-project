@@ -336,8 +336,8 @@ body, html {
 }
 
 
-#newBookForm form > p:nth-last-child(3),
-#editBookForm form > p:nth-last-child(3){
+#newBookForm form > p:nth-last-child(2),
+#editBookForm form > p:nth-last-child(2){
     display: grid;
     grid-column: 1/3;
     
