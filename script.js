@@ -93,14 +93,26 @@ Book.prototype.storeCover = function(){
 
 const sendBookData = function(event){
 
-    event.preventDefault();    
+    event.preventDefault();
 
-    let formData = new FormData(event.target);
-    formData = Object.fromEntries(formData.entries())
+
+    if (event.target.id === "formData"){
+        let formData = new FormData(event.target);
+        formData = Object.fromEntries(formData.entries())
+        
     
+        addBookToLibrary(formData);
+        closeForm.click();
 
-    addBookToLibrary(formData);
-    closeForm.click();
+    } else {
+        // editBookData
+        let formData = new FormData(event.target);
+        formData = Object.fromEntries(formData.entries())
+        
+        editBookFromLibrary(formData);
+        closeEditForm.click();
+    }
+
 };
 
 
@@ -124,6 +136,12 @@ function addBookToLibrary(object) {
     displayArray(myLibrary)
 
 }
+
+
+function editBookFromLibrary(object) {
+
+}
+
 
 function displayArray(array){
 
@@ -345,6 +363,7 @@ readEditCheckbox.addEventListener("change", () => {readEditIcon.classList.toggle
 favEditCheckbox.addEventListener("change", () => {favEditIcon.classList.toggle("checkedFav")});
 
 formDataPanel.addEventListener("submit", sendBookData);
+editFormData.addEventListener("submit", sendBookData);
 
 
 
