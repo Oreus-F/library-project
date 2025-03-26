@@ -211,6 +211,7 @@ function getImgData(location){
             previewCover.appendChild(image);
         });
     } else {
+        // Dialog to edit book
         const files = editCover.files[0];
         const fileReader = new FileReader();
         fileReader.readAsDataURL(files);
