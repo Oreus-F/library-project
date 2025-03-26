@@ -108,8 +108,9 @@ const sendBookData = function(event){
         // editBookData
         let formData = new FormData(event.target);
         formData = Object.fromEntries(formData.entries())
+
         
-        editBookFromLibrary(formData);
+        editBookFromLibrary(formData, myLibrary);
         closeEditForm.click();
     }
 
@@ -120,6 +121,7 @@ function addBookToLibrary(object) {
     //Create new book
     const book = new Book(object.title, object.author, Number(object.pages));
     book.generateId();
+
 
     if (object.editor > 0){book.storeEditor(object.editor)};
     if (object.parutionDate > 0){book.storeParutionDate(object.parutionDate)};
@@ -138,9 +140,46 @@ function addBookToLibrary(object) {
 }
 
 
-function editBookFromLibrary(object) {
+function editBookFromLibrary(object, array) {
+    
 
-}
+    let id = editFormData.id;
+    
+    array.forEach((book) => {
+
+        // select the right book
+        if (id === book.id){
+
+            // Setup useful var
+            let editProp = Object.keys(object);
+
+        
+            // loop through object OBJ properties
+            editProp.forEach((index) => {
+
+                if (index === "pages" || index === "parutionDate") {
+                    // check if pages and parutionDate numbers are the same
+                    let pages = Number(object[index]);
+                    if (book[index] !== pages &&  pages > 0){
+                        book[index] = pages;
+                    };
+                } else if (index === "cover"){
+                    // check if preview's different
+                    let editPreview = document.querySelector("#editPreview").firstChild.getAttribute("src");
+                    if (editPreview !== book[index]){book[index] = editPreview};
+                } else if (book[index] !== object[index]) {
+                    // check if a data exist
+                    if (object[index] !== ""){book[index] = object[index]}
+                };
+            });
+            
+
+        };
+    });
+
+
+    displayArray(array);
+};
 
 
 function displayArray(array){
@@ -290,6 +329,7 @@ function showEditBookData(id, array){
 
     const values = editFormData.children;
     const panelValue = extraEditPanel.children;
+    editFormData.id = id;
 
     array.forEach((book) => {
         if (id === book.id){
@@ -334,6 +374,26 @@ function showEditBookData(id, array){
                 image.classList.toggle("previewImg");
                 previewEditCover.appendChild(image);
             };
+
+            // Comment
+            if (book.comment){values[7].lastElementChild.value = book.comment}
+
+            // Rate
+            if (book.rate){
+                const rate = values[6].children;
+                const rateValue = {
+                    '5' : rate[1],
+                    '4' : rate[3],
+                    '3' : rate[5],
+                    '2' : rate[7],
+                    '1' : rate[9]
+                };
+
+                for (const value in rateValue){
+                    if (book.value === value){rate.value.click()}
+                }
+
+            }
         }
     })
 }
