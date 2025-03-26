@@ -320,7 +320,7 @@ function deleteFromLibrary(array, id){
 function changeReadStatus(array, id){
     array.forEach((item) => {
         if (id === item.id){
-            item.toggleRead();d
+            item.toggleRead();
         };
     });
 };
