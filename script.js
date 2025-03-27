@@ -209,7 +209,7 @@ function displayArray(array){
         // pages
         elements[3].textContent = `${item.pages} pages`;
 
-        // read checkbok (penser a mettre les liens)
+        // read checkbok
         const checkRead = elements[4].lastElementChild;
 
         if (item.read) {checkRead.checked = true};
@@ -218,7 +218,7 @@ function displayArray(array){
             changeReadStatus(myLibrary, id);
         });
 
-        // DIV with ICON (penser à mettre les intéractions)
+        // DIV with ICON
         const editIcon = elements[5].firstElementChild;
         const deleteIcon = elements[5].lastElementChild;
 
