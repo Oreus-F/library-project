@@ -249,6 +249,7 @@ function displayArray(array){
     
 };
 
+
 function getImgData(location){
 
 
@@ -317,6 +318,7 @@ function resetForm(location) {
 
 }
 
+
 function deleteFromLibrary(array, id){
     array.forEach((item) => {
         if (id === item.id){
@@ -325,6 +327,7 @@ function deleteFromLibrary(array, id){
     });
 };
 
+
 function changeReadStatus(array, id){
     array.forEach((item) => {
         if (id === item.id){
@@ -332,6 +335,7 @@ function changeReadStatus(array, id){
         };
     });
 };
+
 
 function showEditBookData(id, array){
 
@@ -405,6 +409,7 @@ function showEditBookData(id, array){
         }
     })
 }
+
 
 /* EVENT LISTENER PART */
 
