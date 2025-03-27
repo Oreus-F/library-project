@@ -66,16 +66,22 @@
                     <div>Books</div>
                     <div>Read</div>
                     <div>Favorite</div>
-                    <select name="filter" id="filter">
+                    <select name="filter" id="filter" >
                         <!-- PEUT ON AJOUTER REDUIRE A-Z / Z-A EN UNE SEULE OPTION
                          ET RAJOUTER UN PARAMETRE AFFICHABLE EN PLUS POUR CHOISIR DANS QUEL ORDRE ?
                          PAREIL POUR NOMBRE DE PAGES ? ET READ / NOT READ -->
                         <option disabled selected value> -- No filter -- </option>
                         <option value="title">Title</option>
                         <option value="author">Author</option>
-                        <option value="pages-numb">Pages numb</option>
-                        <option value="read-or-not">Read</option>
+                        <option value="pages">pages numb</option>
+                        <option value="read">Read</option>
                         <option value="favorite">Favorite</option>
+                        <option value="rate">Rate</option>
+                    </select>
+
+                    <select name="filterOption" id="filterOption" disabled>
+                        <option value="ascending">Alphabetical order</option>
+                        <option value="descending">Reverse order</option>
                     </select>
                     <button id="createNewBook" type="button">Create New Book</button>
                 </form>
