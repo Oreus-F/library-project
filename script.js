@@ -197,6 +197,9 @@ function displayArray(array){
 
     libraryDisplay.replaceChildren();
 
+    if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
+    if (filter)
+
     array.forEach((item) => {
 
         const bookCard = template.cloneNode(true);
@@ -414,6 +417,8 @@ function showEditBookData(id, array){
 }
 
 
+
+
 /* EVENT LISTENER PART */
 
 // Open window for new book
@@ -455,6 +460,11 @@ formDataPanel.addEventListener("submit", sendBookData);
 editFormData.addEventListener("submit", sendBookData);
 
 
+// SWITCH CASE FOR FILTER !
+
+filter.addEventListener("change", () => {displayArray(myLibrary)});
+
+
 
 /* CONSOLE TEST  */
 
@@ -475,7 +485,7 @@ book3.storeFormat("pin");
 
 
 
-myLibrary.push(book1, book2, book3);
+myLibrary.push(book3, book1, book2);
 
 displayArray(myLibrary);
 console.log(myLibrary);
