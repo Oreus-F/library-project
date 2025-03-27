@@ -39,6 +39,7 @@ const editBookButton = document.querySelector("#editBookButton");
 const template = document.querySelector(".template");
 
 const filter = document.querySelector("#filter");
+const filterOption = document.querySelector("#filterOption");
 const search = document.querySelector("#search");
 
 
@@ -197,8 +198,10 @@ function displayArray(array){
 
     libraryDisplay.replaceChildren();
 
+    // ONCE SPECIAL OPTION CREATED - PUT ALL FILTER
     if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
-    if (filter)
+    if (filter.value === "author") {array = array.slice().sort((a, b) => a.author.localeCompare(b.author))};
+    if (filter.value === "pages-numb") {array = array.slice().sort((a, b) => a.pages - b.pages)};
 
     array.forEach((item) => {
 
@@ -460,11 +463,33 @@ formDataPanel.addEventListener("submit", sendBookData);
 editFormData.addEventListener("submit", sendBookData);
 
 
-// SWITCH CASE FOR FILTER !
+// Display Books with filter and disable the option filter !
 
-filter.addEventListener("change", () => {displayArray(myLibrary)});
+filter.addEventListener("change", () => {
+    if (filterOption.disabled){
+        filterOption.disabled = false;
+        displayArray(myLibrary);
+    };
+    displayArray(myLibrary)
+});
 
+// Change text of Option based on filter value 
 
+filter.addEventListener("change", () => {
+    if (filter.value === "pages" || filter.value === "rate" || filter.value === "parution") {
+        filterOption.firstElementChild.textContent = "Ascending";
+        filterOption.lastElementChild.textContent = "Descending"
+    } else if (filter.value === "read") {
+        filterOption.firstElementChild.textContent = "Read first";
+        filterOption.lastElementChild.textContent = "Not read first";
+    } else if (filter.value === "favorite") {
+        filterOption.firstElementChild.textContent = "Favorite first";
+        filterOption.lastElementChild.textContent = "Not favorite first";
+    } else {
+        filterOption.firstElementChild.textContent = "Alphabetical order";
+        filterOption.lastElementChild.textContent = "Reverse order";
+    }
+})
 
 /* CONSOLE TEST  */
 
