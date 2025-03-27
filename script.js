@@ -413,29 +413,42 @@ function showEditBookData(id, array){
 
 /* EVENT LISTENER PART */
 
+// Open window for new book
 newBookButton.addEventListener("click", () => {newBookForm.showModal()})
+
+
+// Close window for new book && edit book
 closeForm.addEventListener("click", () => {
     resetForm(newBookForm);
     newBookForm.close()
 });
+
 
 closeEditForm.addEventListener("click", () => {
     // need checkpoint if values changes
     resetForm(editBookForm);
     editBookForm.close()});
 
+
+// Open panel for more information inside Edit/NewBook window
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 toggleEditPanelButton.addEventListener("click", () => extraEditPanel.classList.toggle("visible"))
+
+// Display the preview of selected cover for both new/edit window
 chooseCover.addEventListener("change", () => {getImgData(chooseCover)});
 editCover.addEventListener("change", () => {getImgData(editCover)});
 
+// fill the color of svg label for read and favorite status
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
 favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedFav")});
 
 readEditCheckbox.addEventListener("change", () => {readEditIcon.classList.toggle("checkedRead");});
 favEditCheckbox.addEventListener("change", () => {favEditIcon.classList.toggle("checkedFav")});
 
+// activate new book process
 formDataPanel.addEventListener("submit", sendBookData);
+
+// activate edit book process
 editFormData.addEventListener("submit", sendBookData);
 
 
