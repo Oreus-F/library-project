@@ -153,7 +153,6 @@ function editBookFromLibrary(object, array) {
             // Setup useful var
             let editProp = Object.keys(object);
 
-        
             // loop through object OBJ properties
             editProp.forEach((index) => {
 
@@ -167,11 +166,20 @@ function editBookFromLibrary(object, array) {
                     // check if preview's different
                     let editPreview = document.querySelector("#editPreview").firstChild.getAttribute("src");
                     if (editPreview !== book[index]){book[index] = editPreview};
+                } else if (index === "readOrNot") {
+                    if (book.read !== true) {book.toggleRead()};
+                } else if (index === "favorite") {
+                    // Check if fav is turned on
+                    if (book[index] !== true) {book[index] = true;}
                 } else if (book[index] !== object[index]) {
                     // check if a data exist
                     if (object[index] !== ""){book[index] = object[index]}
                 };
             });
+
+            // Check if read of fav has been turned off
+            if (object.readOrNot === undefined && book.read === true){book.toggleRead()};
+            if (object.favorite === undefined && book.read === true){book.toggleFavorite()};
             
 
         };
