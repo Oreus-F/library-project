@@ -41,9 +41,8 @@ const template = document.querySelector(".template");
 const filter = document.querySelector("#filter");
 const filterOption = document.querySelector("#order");
 const search = document.querySelector("#search");
-let searchValue = search.value;
+const searchForm = document.querySelector("#searchBarForm");
 
-let ascendingOrder = true;
 
 const myLibrary = [];
 
@@ -508,6 +507,11 @@ filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 
 // Searching Zone
 
+searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    getSpecificBook(myLibrary);
+});
 
 
 /* ZONE DE TEST */
