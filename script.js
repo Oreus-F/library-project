@@ -41,6 +41,7 @@ const template = document.querySelector(".template");
 const filter = document.querySelector("#filter");
 const filterOption = document.querySelector("#order");
 const search = document.querySelector("#search");
+let searchValue = search.value;
 
 let ascendingOrder = true;
 
@@ -439,6 +440,20 @@ function showEditBookData(id, array){
     })
 }
 
+function getSpecificBook(array){
+    let request = search.value.toLowerCase();
+
+
+
+    let result = array.filter((book) => {
+
+        return book.title
+        .toLowerCase()
+        .includes(request);
+    })
+
+    displayArray(result);
+};
 
 
 
@@ -491,6 +506,17 @@ filter.addEventListener("change", () => {displayArray(myLibrary)});
 
 filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 
+// Searching Zone
+
+
+
+/* ZONE DE TEST */
+
+
+
+
+
+/* FIN DE ZONE DE TEST */
 
 /* CONSOLE TEST  */
 
