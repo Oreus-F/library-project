@@ -199,9 +199,23 @@ function displayArray(array){
     libraryDisplay.replaceChildren();
 
     // ONCE SPECIAL OPTION CREATED - PUT ALL FILTER
-    if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
-    if (filter.value === "author") {array = array.slice().sort((a, b) => a.author.localeCompare(b.author))};
-    if (filter.value === "pages-numb") {array = array.slice().sort((a, b) => a.pages - b.pages)};
+    if (filterOption.value = "ascending"){
+        if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
+        if (filter.value === "author") {array = array.slice().sort((a, b) => a.author.localeCompare(b.author))};
+        if (filter.value === "pages") {array = array.slice().sort((a, b) => a.pages - b.pages)};
+        if (filter.value === "parution") {array = array.slice().sort((a, b) => a.parutionDate - b.parutionDate)};
+        if (filter.value === "read") {array = array.slice().sort((a, b) => a.read - b.read)};
+        if (filter.value === "favorite") {array = array.slice().sort((a, b) => a.favorite - b.favorite)};
+        if (filter.value === "rate") {array = array.slice().sort((a, b) => a.rate - b.rate)};
+    } else {
+        if (filter.value === "title") {array = array.slice().sort((a, b) => b.title.localeCompare(a.title))};
+        if (filter.value === "author") {array = array.slice().sort((a, b) => b.author.localeCompare(a.author))};
+        if (filter.value === "pages") {array = array.slice().sort((a, b) => b.pages - a.pages)};
+        if (filter.value === "parution") {array = array.slice().sort((a, b) => b.parutionDate - a.parutionDate)};
+        if (filter.value === "read") {array = array.slice().sort((a, b) => b.read - a.read)};
+        if (filter.value === "favorite") {array = array.slice().sort((a, b) => b.favorite - a.favorite)};
+        if (filter.value === "rate") {array = array.slice().sort((a, b) => b.rate - a.rate)}; 
+    }
 
     array.forEach((item) => {
 
@@ -463,15 +477,16 @@ formDataPanel.addEventListener("submit", sendBookData);
 editFormData.addEventListener("submit", sendBookData);
 
 
-// Display Books with filter and disable the option filter !
+// Display Books with filter
 
-filter.addEventListener("change", () => {
-    if (filterOption.disabled){
-        filterOption.disabled = false;
-        displayArray(myLibrary);
-    };
-    displayArray(myLibrary)
-});
+filter.addEventListener("change", () => {displayArray(myLibrary)});
+
+// Display book after selecting Option 
+
+// filterOption.addEventListener("change", () => {displayArray(myLibrary)});
+
+// Disable filterOption once
+filter.addEventListener("change", () => {filterOption.disabled = false;}, {once:true});
 
 // Change text of Option based on filter value 
 
@@ -490,6 +505,8 @@ filter.addEventListener("change", () => {
         filterOption.lastElementChild.textContent = "Reverse order";
     }
 })
+
+
 
 /* CONSOLE TEST  */
 
