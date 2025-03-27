@@ -39,9 +39,10 @@ const editBookButton = document.querySelector("#editBookButton");
 const template = document.querySelector(".template");
 
 const filter = document.querySelector("#filter");
-const filterOption = document.querySelector("#filterOption");
+const filterOption = document.querySelector("#order");
 const search = document.querySelector("#search");
 
+let ascendingOrder = true;
 
 const myLibrary = [];
 
@@ -199,14 +200,19 @@ function displayArray(array){
     libraryDisplay.replaceChildren();
 
     // ONCE SPECIAL OPTION CREATED - PUT ALL FILTER
-    if (filterOption.value = "ascending"){
+    if (filterOption.checked === false){
         if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
         if (filter.value === "author") {array = array.slice().sort((a, b) => a.author.localeCompare(b.author))};
         if (filter.value === "pages") {array = array.slice().sort((a, b) => a.pages - b.pages)};
         if (filter.value === "parution") {array = array.slice().sort((a, b) => a.parutionDate - b.parutionDate)};
+
+        // read and fav not working cannot use sort that way
         if (filter.value === "read") {array = array.slice().sort((a, b) => a.read - b.read)};
         if (filter.value === "favorite") {array = array.slice().sort((a, b) => a.favorite - b.favorite)};
+
+
         if (filter.value === "rate") {array = array.slice().sort((a, b) => a.rate - b.rate)};
+
     } else {
         if (filter.value === "title") {array = array.slice().sort((a, b) => b.title.localeCompare(a.title))};
         if (filter.value === "author") {array = array.slice().sort((a, b) => b.author.localeCompare(a.author))};
@@ -483,29 +489,7 @@ filter.addEventListener("change", () => {displayArray(myLibrary)});
 
 // Display book after selecting Option 
 
-// filterOption.addEventListener("change", () => {displayArray(myLibrary)});
-
-// Disable filterOption once
-filter.addEventListener("change", () => {filterOption.disabled = false;}, {once:true});
-
-// Change text of Option based on filter value 
-
-filter.addEventListener("change", () => {
-    if (filter.value === "pages" || filter.value === "rate" || filter.value === "parution") {
-        filterOption.firstElementChild.textContent = "Ascending";
-        filterOption.lastElementChild.textContent = "Descending"
-    } else if (filter.value === "read") {
-        filterOption.firstElementChild.textContent = "Read first";
-        filterOption.lastElementChild.textContent = "Not read first";
-    } else if (filter.value === "favorite") {
-        filterOption.firstElementChild.textContent = "Favorite first";
-        filterOption.lastElementChild.textContent = "Not favorite first";
-    } else {
-        filterOption.firstElementChild.textContent = "Alphabetical order";
-        filterOption.lastElementChild.textContent = "Reverse order";
-    }
-})
-
+filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 
 
 /* CONSOLE TEST  */
