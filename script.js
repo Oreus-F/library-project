@@ -422,18 +422,12 @@ function showEditBookData(id, array){
             // Rate
             if (book.rate){
                 const rate = values[6].children;
-                const rateValue = {
-                    '5' : rate[1],
-                    '4' : rate[3],
-                    '3' : rate[5],
-                    '2' : rate[7],
-                    '1' : rate[9]
-                };
 
-                for (const value in rateValue){
-                    if (book.rate === value){rate[value].click()}
-                }
-
+                if (book.rate === "5") rate[1].click();
+                if (book.rate === "4") rate[3].click();
+                if (book.rate === "3") rate[5].click();
+                if (book.rate === "2") rate[7].click();
+                if (book.rate === "1") rate[9].click();
             }
         }
     })
@@ -506,7 +500,6 @@ filter.addEventListener("change", () => {displayArray(myLibrary)});
 filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 
 // Searching Zone
-
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -528,16 +521,44 @@ searchForm.addEventListener("submit", (event) => {
 const book1 = new Book("1984","George Orwell", 391);
 const book2 = new Book("The Lord of the Rings","J.R.R Tolkien", 1335);
 const book3 = new Book("The Man in the High Castle","Philip K. Dick", 396);
+const book4 = new Book("", "", )
+const book5 = new Book("", "", )
+const book6 = new Book("", "", )
+const book7 = new Book("Acid Summer", "Christophe Lambert", 226)
+const book8 = new Book("", "", )
+const book9 = new Book("", "", )
+const book10 = new Book("", "", )
+const book11 = new Book("", "", )
+const book12 = new Book("", "", )
+
 book1.generateId();
 book2.generateId(); 
 book3.generateId();
+
 book1.cover = "assets/images/1984_cover.jpg";
 book2.cover = "assets/images/LOTR_cover.jpg";
 book3.cover = "assets/images/theManInTheHighCastle.jpg";
-book1.toggleRead();
-book2.storeEditor("CHRISTIAN BOURGOIS EDITEUR");
-book3.storeFormat("pin");
+book7.cover = "assets/images/acideSummer.jpg"
 
+book1.toggleRead();
+book2.toggleRead();
+book7.toggleRead();
+
+book2.toggleFavorite();
+
+book2.storeEditor("CHRISTIAN BOURGOIS EDITEUR");
+book7.storeEditor("MILAN")
+
+book1.storeFormat("audiobook");
+book3.storeFormat("connected");
+
+book1.storeParutionDate(1949);
+book3.storeParutionDate(1962);
+book7.storeParutionDate(2019);
+
+book7.storeComment("One of my old teacher's book, enjoy it one day, it's french, if you're brave enough")
+
+book1.storeRate('5');
 
 
 
