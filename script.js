@@ -38,6 +38,9 @@ const editBookButton = document.querySelector("#editBookButton");
 
 const template = document.querySelector(".template");
 
+const filter = document.querySelector("#filter");
+const search = document.querySelector("#search");
+
 
 const myLibrary = [];
 
