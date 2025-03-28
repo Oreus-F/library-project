@@ -46,6 +46,10 @@ const searchForm = document.querySelector("#searchBarForm");
 
 const myLibrary = [];
 
+
+
+// LES IMAGES SONT TROP GRANDES MODIFIE UNIQUEMENT SUR CSS ELLES PRENNENT TROP DE PLACES DANS LE DOM A MODIFIER
+
 /* OBJECT AND PROTOTYPE */
 
 const Book = function(title, author, pages){
