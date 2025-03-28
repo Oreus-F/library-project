@@ -286,6 +286,7 @@ function displayArray(array){
         
         checkRead.addEventListener("change", () => {
             changeReadStatus(myLibrary, id);
+            displayArray(myLibrary);
         });
 
         // DIV with ICON
