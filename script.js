@@ -211,20 +211,49 @@ function displayArray(array){
         if (filter.value === "parution") {array = array.slice().sort((a, b) => a.parutionDate - b.parutionDate)};
 
         // read and fav not working cannot use sort that way
-        if (filter.value === "read") {array = array.slice().sort((a, b) => a.read - b.read)};
-        if (filter.value === "favorite") {array = array.slice().sort((a, b) => a.favorite - b.favorite)};
+        if (filter.value === "read") {
+            array = array.slice().filter((book) => book.read);
+            myLibrary.forEach((book) => {
+                if (book.read !== true){
+                    array.push(book);
+                };
+            });
+        };
+        if (filter.value === "favorite") {
+            array = array.slice().filter((book) => book.favorite);
+            myLibrary.forEach((book) => {
+                if (book.favorite !== true){array.push(book);};
+            });
+        };
 
 
-        if (filter.value === "rate") {array = array.slice().sort((a, b) => a.rate - b.rate)};
+        if (filter.value === "rate") {array = array.slice().filter((book) => book.rate).sort((a, b) => a.rate + b.rate);}
 
     } else {
         if (filter.value === "title") {array = array.slice().sort((a, b) => b.title.localeCompare(a.title))};
         if (filter.value === "author") {array = array.slice().sort((a, b) => b.author.localeCompare(a.author))};
         if (filter.value === "pages") {array = array.slice().sort((a, b) => b.pages - a.pages)};
         if (filter.value === "parution") {array = array.slice().sort((a, b) => b.parutionDate - a.parutionDate)};
-        if (filter.value === "read") {array = array.slice().sort((a, b) => b.read - a.read)};
-        if (filter.value === "favorite") {array = array.slice().sort((a, b) => b.favorite - a.favorite)};
-        if (filter.value === "rate") {array = array.slice().sort((a, b) => b.rate - a.rate)}; 
+
+        if (filter.value === "read") {
+            array = array.slice().filter((book) => book.read !== true);
+            myLibrary.forEach((book) => {
+                if (book.read){
+                    array.push(book);
+                };
+            });
+        };
+
+        if (filter.value === "favorite") {
+            array = array.slice().filter((book) => book.favorite !== true);
+            myLibrary.forEach((book) => {
+                if (book.favorite){
+                    array.push(book);
+                };
+            });
+        };
+
+        if (filter.value === "rate") {array = array.slice().filter((book) => book.rate).sort((a, b) => a.rate - b.rate);}
     }
 
     array.forEach((item) => {
@@ -611,6 +640,3 @@ myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9, bo
 
 displayArray(myLibrary);
 console.log(myLibrary);
-
-
-
