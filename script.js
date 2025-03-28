@@ -518,7 +518,8 @@ const book4 = new Book("Brave New World", "Aldous Huxley", 317)
 const book5 = new Book("Le Petit Prince", "Antoine de Saint-Exupéry", 128)
 const book6 = new Book("Conquering the Impossible", "Mike Horn", 461)
 const book7 = new Book("Acid Summer", "Christophe Lambert", 226)
-const book8 = new Book("Waylander", "David Gemmel", 355)
+const book8 = new Book("Waylander", "David Gemmel", 355);
+const book9 = new Book("Moby Dick", "Herman Melville", 635);
 
 
 book1.generateId();
@@ -529,6 +530,7 @@ book5.generateId();
 book6.generateId();
 book7.generateId();
 book8.generateId();
+book9.generateId();
 
 book1.cover = "assets/images/1984_cover.jpg";
 book2.cover = "assets/images/LOTR_cover.jpg";
@@ -538,6 +540,7 @@ book5.cover = "assets/images/lePetitPrince.jpg";
 book6.cover = "assets/images/conqueringTheImpossible.jpg";
 book7.cover = "assets/images/acidSummer.jpg";
 book8.cover = "assets/images/Waylander.jpg";
+book9.cover = "assets/images/mobyDick.jpeg";
 
 book1.toggleRead();
 book5.toggleRead();
@@ -584,7 +587,7 @@ book8.storeRate('3');
 
 
 
-myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8);
+myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9);
 
 displayArray(myLibrary);
 console.log(myLibrary);
