@@ -520,6 +520,9 @@ const book6 = new Book("Conquering the Impossible", "Mike Horn", 461)
 const book7 = new Book("Acid Summer", "Christophe Lambert", 226)
 const book8 = new Book("Waylander", "David Gemmel", 355);
 const book9 = new Book("Moby Dick", "Herman Melville", 635);
+const book10 = new Book("Ubik", "Philip K. Dick", 288);
+const book11 = new Book("Flash ou le Grand Voyage", "Charles Duchaussois", 427);
+const book12 = new Book("Azteca", "Gary Jennings", 1047);
 
 
 book1.generateId();
@@ -531,6 +534,10 @@ book6.generateId();
 book7.generateId();
 book8.generateId();
 book9.generateId();
+book10.generateId();
+book11.generateId();
+book12.generateId();
+
 
 book1.cover = "assets/images/1984_cover.jpg";
 book2.cover = "assets/images/LOTR_cover.jpg";
@@ -541,6 +548,10 @@ book6.cover = "assets/images/conqueringTheImpossible.jpg";
 book7.cover = "assets/images/acidSummer.jpg";
 book8.cover = "assets/images/Waylander.jpg";
 book9.cover = "assets/images/mobyDick.jpeg";
+book10.cover = "assets/images/ubik.jpg";
+book11.cover = "assets/images/flashGrandVoyage.jpeg";
+book12.cover = "assets/images/azteca.jpg";
+
 
 book1.toggleRead();
 book5.toggleRead();
@@ -555,7 +566,8 @@ book2.storeEditor("CHRISTIAN BOURGOIS EDITEUR");
 book5.storeEditor("LIVRARIA LELLO")
 book6.storeEditor("XO EDITION")
 book7.storeEditor("MILAN");
-book8.storeEditor("BRAGELONNE")
+book8.storeEditor("BRAGELONNE");
+book12.storeEditor("HACHETTE");
 
 book1.storeFormat("audiobook");
 book3.storeFormat("connected");
@@ -563,7 +575,9 @@ book4.storeFormat("kindle");
 book5.storeFormat("connected");
 book6.storeFormat("connected");
 book7.storeFormat("connected");
-book8.storeFormat("connected")
+book8.storeFormat("connected");
+book11.storeFormat("kindle");
+book12.storeFormat("connected");
 
 book1.storeParutionDate(1949);
 book2.storeParutionDate(1954);
@@ -571,6 +585,8 @@ book3.storeParutionDate(1962);
 book4.storeParutionDate(1932);
 book5.storeParutionDate(1943);
 book7.storeParutionDate(2019);
+book10.storeParutionDate(1969);
+book12.storeParutionDate(1991);
 
 
 book5.storeComment("Easy to read, different layers of lecture, for kids and adult who forgot they're still kids")
@@ -587,7 +603,7 @@ book8.storeRate('3');
 
 
 
-myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9);
+myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9, book10, book11, book12);
 
 displayArray(myLibrary);
 console.log(myLibrary);
