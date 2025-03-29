@@ -101,7 +101,8 @@ body, html {
 }
 
 .library > div:first-child{
-    border: 2px orange solid;
+
+    padding: 12px;
 
     align-self: center;
     position: sticky;
