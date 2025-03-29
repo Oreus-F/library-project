@@ -63,9 +63,18 @@
                     <label for="search">
                     </label>
                     <input type="search" id="search" name="search" placeholder="Search a book..." aria-label="Search a book through your library">
-                    <div>Books</div>
-                    <div>Read</div>
-                    <div>Favorite</div>
+                    <div  class="counter" >
+                        <p>Books</p>
+                        <p id="totalBook"></p>
+                    </div>
+                    <div class="counter">
+                        <p>Read</p>
+                        <p id="totalRead"></p>
+                    </div>
+                    <div class="counter" >
+                        <p>Favorite</p>
+                        <p id="totalFav"></p>
+                    </div>
                     <select name="filter" id="filter" >
                         <!-- PEUT ON AJOUTER REDUIRE A-Z / Z-A EN UNE SEULE OPTION
                          ET RAJOUTER UN PARAMETRE AFFICHABLE EN PLUS POUR CHOISIR DANS QUEL ORDRE ?
