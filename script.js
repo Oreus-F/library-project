@@ -313,7 +313,7 @@ function displayArray(array){
         libraryDisplay.appendChild(bookCard);
     });
 
-    
+    editCounter(array);    
 };
 
 
@@ -486,7 +486,21 @@ function getSpecificBook(array){
     displayArray(result);
 };
 
+function editCounter(array){
+    let totalBook = 0;
+    let totalRead = 0;
+    let totalFav = 0;
 
+    array.forEach((book) => {
+        totalBook++; 
+        if (book.read === true) totalRead++;
+        if (book.favorite === true) totalFav++;
+    });
+
+    counterBook.textContent = totalBook;
+    counterRead.textContent = totalRead;
+    counterFav.textContent = totalFav;
+}
 
 /* EVENT LISTENER PART */
 
