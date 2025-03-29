@@ -43,6 +43,10 @@ const filterOption = document.querySelector("#order");
 const search = document.querySelector("#search");
 const searchForm = document.querySelector("#searchBarForm");
 
+const counterBook = document.querySelector("#counterBook");
+const counterRead = document.querySelector("#counterRead");
+const counterFav = document.querySelector("#counterFav");
+
 
 const myLibrary = [];
 
