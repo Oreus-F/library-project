@@ -25,7 +25,7 @@ body, html {
     
     display: grid;
     grid-template-columns: minmax(230px, 15%) 1fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 100px 1fr;
     grid-template-areas: 
     "header header"
     "sidebar library";
@@ -42,11 +42,13 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    padding: 24px 48px;
 }
 
 .header > ul {
     display: flex;
-    gap: 24px;
+    gap: 64px;
 }
 
 .sidebar{
@@ -82,22 +84,22 @@ body, html {
     overflow-y: scroll;
 
     display: grid;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 60px 1fr;
 
 }
 
 .library > div:first-child{
     border: 2px orange solid;
 
+    align-self: center;
     position: sticky;
     top: 0px;
 }
 
-.library > div:first-child > form {
+#searchBarForm{
     display: grid;
-    grid-template-columns: 30px 3fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 30px 3fr repeat(3, 0.5fr) 2fr 0.5fr 1fr;
     gap: 12px;
-    
     
 }
 
