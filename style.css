@@ -57,12 +57,18 @@ body, html {
 
     display: grid;
     grid-template-rows: 15% 1fr;
+    gap: 24px;
+
+    padding-left: 24px;
+    
 }
 
 .sidebar ul {
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    padding-left: 12px;
 }
 
 .sidebar ul li{
