@@ -63,6 +63,12 @@ body, html {
     
 }
 
+
+.sidebar svg:first-child{
+    justify-self: center;
+    align-self: center;
+}
+
 .sidebar ul {
     display: flex;
     flex-direction: column;
