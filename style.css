@@ -445,6 +445,7 @@ input::-webkit-inner-spin-button {
 
 input[type="number"]{
     -moz-animation: none;
+    animation: none;
 }
 
 #closeForm,
