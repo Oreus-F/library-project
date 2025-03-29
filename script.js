@@ -179,7 +179,7 @@ function editBookFromLibrary(object, array) {
                     if (book.read !== true) {book.toggleRead()};
                 } else if (index === "favorite") {
                     // Check if fav is turned on
-                    if (book[index] !== true) {book[index] = true;}
+                    if (book.favorite !== true) {book.toggleFavorite()};
                 } else if (book[index] !== object[index]) {
                     // check if a data exist
                     if (object[index] !== ""){book[index] = object[index]}
@@ -188,7 +188,7 @@ function editBookFromLibrary(object, array) {
 
             // Check if read of fav has been turned off
             if (object.readOrNot === undefined && book.read === true){book.toggleRead()};
-            if (object.favorite === undefined && book.read === true){book.toggleFavorite()};
+            if (object.favorite === undefined && book.favorite === true){book.toggleFavorite()};
             
 
         };
