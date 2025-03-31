@@ -293,9 +293,20 @@ function displayArray(array){
             displayArray(myLibrary);
         });
 
+
+        // fav checkbox
+        const checkFav = elements[5].lastElementChild;
+
+        if (item.favorite) {checkFav.checked = true};
+
+        checkFav.addEventListener("change", () => {
+            changeFavStatus(myLibrary, id);
+            displayArray(myLibrary);
+        })
+
         // DIV with ICON
-        const editIcon = elements[5].firstElementChild;
-        const deleteIcon = elements[5].lastElementChild;
+        const editIcon = elements[6].firstElementChild;
+        const deleteIcon = elements[6].lastElementChild;
 
         editIcon.addEventListener("click", () => {
             showEditBookData(id, myLibrary);
@@ -404,6 +415,15 @@ function changeReadStatus(array, id){
 };
 
 
+function changeFavStatus(array, id){
+    array.forEach((item) => {
+        if (id === item.id) {
+            item.toggleFavorite();
+        };
+    });
+};
+
+
 function showEditBookData(id, array){
 
     const values = editFormData.children;
@@ -471,6 +491,7 @@ function showEditBookData(id, array){
     })
 }
 
+
 function getSpecificBook(array){
     let request = search.value.toLowerCase();
 
@@ -486,6 +507,7 @@ function getSpecificBook(array){
     displayArray(result);
 };
 
+
 function editCounter(array){
     let totalBook = 0;
     let totalRead = 0;
@@ -500,7 +522,8 @@ function editCounter(array){
     counterBook.textContent = totalBook;
     counterRead.textContent = totalRead;
     counterFav.textContent = totalFav;
-}
+};
+
 
 /* EVENT LISTENER PART */
 
