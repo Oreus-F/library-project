@@ -121,7 +121,7 @@ body, html {
     padding: 24px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
     grid-template-rows: repeat(auto-fit, 150px);
     gap: 24px;
 }
