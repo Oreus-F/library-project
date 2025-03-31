@@ -641,10 +641,11 @@ book10.storeParutionDate(1969);
 book12.storeParutionDate(1991);
 
 
+book2.storeComment("Yes i know i didnt read it yet and it's rated 5 stars ... I know, what are you gonna do about it ? ")
 book5.storeComment("Easy to read, different layers of lecture, for kids and adult who forgot they're still kids")
 book6.storeComment("I mean, i like bouldering but alpinism it's kinda impressive from here ... Warm in my bed")
 book7.storeComment("One of my old teacher's book, enjoy it one day, it's french, if you're brave enough");
-book8.storeComment("It's an OK fantasy book, the whole saga Gemmel created it's kinda cool to read though you should look");
+book8.storeComment("It's an OK fantasy book, the whole saga Gemmel created it's kinda cool to read though, you should look");
 
 
 book1.storeRate('4');
