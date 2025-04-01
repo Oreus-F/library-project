@@ -570,6 +570,10 @@ editFormData.addEventListener("submit", sendBookData);
 
 filter.addEventListener("change", () => {displayArray(myLibrary)});
 
+
+// unlocked order option after choosing a filter (only once)
+filter.addEventListener("change", () => {filterOption.disabled = false, once=true})
+
 // Display book after selecting Option 
 
 filterOption.addEventListener("change", () => {displayArray(myLibrary)});
