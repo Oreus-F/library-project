@@ -111,10 +111,12 @@ body, html {
 
 #searchBarForm{
     display: grid;
-    grid-template-columns: 30px 3fr repeat(3, 0.5fr) 2fr 0.5fr 1fr;
+    grid-template-columns: 40px 3fr repeat(3, 0.5fr) 1.2fr 0.5fr 1fr;
     gap: 12px;
     
 }
+
+
 
 #libraryDisplay{
 
