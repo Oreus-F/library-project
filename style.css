@@ -133,6 +133,19 @@ body, html {
     padding: 8px;
 }
 
+
+.counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.counter > p:last-child{
+    font-size: 20px;
+}
+
 #libraryDisplay{
 
     padding: 24px;
