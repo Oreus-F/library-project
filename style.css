@@ -122,7 +122,7 @@ body, html {
 
 #searchBarForm{
     display: grid;
-    grid-template-columns: 40px 3fr repeat(3, 0.5fr) 1.2fr 0.5fr 1fr;
+    grid-template-columns: 40px 2.5fr repeat(3, 0.5fr) 1fr 0.8fr 0.7fr;
     gap: 12px;
     
 }
@@ -154,10 +154,25 @@ body, html {
 }
 
 
-#order{
-    /* ok text content  */
+#searchBarForm > label[for="order"] {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding: 6px;
 }
 
+#order{
+    height: 20px;
+    width: 20px;
+}
+
+#order:not(:disabled):before{
+    content: "Alphabetical";
+    float: right;
+    padding-right: 28px;
+    font-size: 1rem;
+}
 
 #libraryDisplay{
 
