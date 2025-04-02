@@ -38,7 +38,7 @@ body, html {
     
     display: grid;
     grid-template-columns: minmax(230px, 15%) 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 120px 1fr;
     grid-template-areas: 
     "header header"
     "sidebar library";
@@ -59,6 +59,18 @@ body, html {
     padding: 24px 48px;
 }
 
+.header > span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.header > span > p {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
 .header > ul {
     display: flex;
     gap: 64px;
@@ -69,10 +81,8 @@ body, html {
     grid-area: sidebar;
 
     display: grid;
-    grid-template-rows: 15% 1fr;
-    gap: 24px;
 
-    padding-left: 24px;
+    padding: 80px 0px 0px 24px;
     
 }
 
@@ -96,7 +106,7 @@ body, html {
 }
 
 .sidebar ul > li:nth-child(4), .sidebar ul > li:nth-child(8){
-    margin-bottom: 24px;
+    margin-bottom: 72px;
     
 }
 
@@ -188,7 +198,6 @@ body, html {
 #order:not(:disabled):checked ~ span::before{
     content: "Descending";
 }
-
 
 
 
