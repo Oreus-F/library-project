@@ -207,6 +207,7 @@ function displayArray(array){
 
     libraryDisplay.replaceChildren();
 
+    
     // ONCE SPECIAL OPTION CREATED - PUT ALL FILTER
     if (filterOption.checked === false){
         if (filter.value === "title") {array = array.slice().sort((a, b) => a.title.localeCompare(b.title))};
@@ -260,6 +261,7 @@ function displayArray(array){
         if (filter.value === "rate") {array = array.slice().filter((book) => book.rate).sort((a, b) => a.rate - b.rate);}
     }
 
+
     array.forEach((item) => {
 
         const bookCard = template.cloneNode(true);
@@ -289,6 +291,7 @@ function displayArray(array){
         if (item.read) {checkRead.checked = true};
         
         checkRead.addEventListener("change", () => {
+
             changeReadStatus(myLibrary, id);
             displayArray(myLibrary);
         });
@@ -398,9 +401,9 @@ function resetForm(location) {
 
 
 function deleteFromLibrary(array, id){
-    array.forEach((item) => {
+    array.forEach((item, index) => {
         if (id === item.id){
-            array.splice(item, 1);
+            array.splice(index, 1);
         };
     });
 };
@@ -541,16 +544,19 @@ closeForm.addEventListener("click", () => {
 closeEditForm.addEventListener("click", () => {
     // need checkpoint if values changes
     resetForm(editBookForm);
-    editBookForm.close()});
+    editBookForm.close()
+});
 
 
 // Open panel for more information inside Edit/NewBook window
 togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
 toggleEditPanelButton.addEventListener("click", () => extraEditPanel.classList.toggle("visible"))
 
+
 // Display the preview of selected cover for both new/edit window
 chooseCover.addEventListener("change", () => {getImgData(chooseCover)});
 editCover.addEventListener("change", () => {getImgData(editCover)});
+
 
 // fill the color of svg label for read and favorite status
 readCheckbox.addEventListener("change", () => {readIcon.classList.toggle("checkedRead");});
@@ -559,8 +565,10 @@ favCheckbox.addEventListener("change", () => {favIcon.classList.toggle("checkedF
 readEditCheckbox.addEventListener("change", () => {readEditIcon.classList.toggle("checkedRead");});
 favEditCheckbox.addEventListener("change", () => {favEditIcon.classList.toggle("checkedFav")});
 
+
 // activate new book process
 formDataPanel.addEventListener("submit", sendBookData);
+
 
 // activate edit book process
 editFormData.addEventListener("submit", sendBookData);
@@ -574,9 +582,11 @@ filter.addEventListener("change", () => {displayArray(myLibrary)});
 // unlocked order option after choosing a filter (only once)
 filter.addEventListener("change", () => {filterOption.disabled = false, once=true})
 
+
 // Display book after selecting Option 
 
 filterOption.addEventListener("change", () => {displayArray(myLibrary)});
+
 
 // Searching Zone
 searchForm.addEventListener("submit", (event) => {
@@ -586,6 +596,7 @@ searchForm.addEventListener("submit", (event) => {
 });
 
 
+// 
 
 /* CONSOLE TEST  */
 
