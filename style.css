@@ -12,7 +12,9 @@
     --white : #FFFFFF;
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -122,7 +124,7 @@ body, html {
 
 #searchBarForm{
     display: grid;
-    grid-template-columns: 40px 2.5fr repeat(3, 0.5fr) 1fr 0.8fr 0.7fr;
+    grid-template-columns: 40px 2fr repeat(3, 0.5fr) 1fr 0.8fr 1fr;
     gap: 12px;
     
 }
@@ -155,24 +157,66 @@ body, html {
 
 
 #searchBarForm > label[for="order"] {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
     padding: 6px;
 }
 
-#order{
-    height: 20px;
-    width: 20px;
+#order,
+#order:disabled ~ #orderIcon > svg{
+    display: none;
+    height: 0;
 }
 
-#order:not(:disabled):before{
-    content: "Alphabetical";
-    float: right;
-    padding-right: 28px;
-    font-size: 1rem;
+#orderIcon{
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
+
+
+#order:not(:disabled) ~ span::before,
+#order:not(:disabled):checked ~ span::before{
+    float: right;
+    font-size: 1rem;
+    padding-right: 6px;
+}
+
+#order:not(:disabled) ~ span::before{
+    content: "Ascending";
+}
+
+
+#order:not(:disabled):checked ~ span::before{
+    content: "Descending";
+}
+
+
+
+
+#orderIcon > svg {
+    z-index: 1000;
+}
+
+#orderIcon:active > svg{
+    transform: scale(1.2);
+    transition: scale 0.5s;
+}
+
+
+#order:checked ~ span > svg {
+    transform: rotate(-180deg);
+    transition: 0.5s;
+}
+
+#order:checked ~ #orderIcon:active > svg{
+    scale: 1.2;
+    transition: scale 0.5s;
+}
+
+#order:not(:checked) ~ span > svg{
+    rotate: 0deg;
+    transition: 0.5s;
+}
+
 
 #libraryDisplay{
 
