@@ -1,3 +1,13 @@
+@font-face {
+    font-family: martel;
+    src: url(assets/fonts/martel-regular-webfont.woff2);
+}
+
+@font-face {
+    font-family: average;
+    src: url(assets/fonts/average-regular-webfont.woff2);
+}
+
 :root{
     --white : #FFFFFF;
 }
@@ -7,6 +17,7 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+    font-family: average, martel, serif;
 }
 
 body, html {
@@ -96,7 +107,7 @@ body, html {
     overflow-y: scroll;
 
     display: grid;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 80px 1fr;
 
 }
 
