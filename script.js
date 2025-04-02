@@ -315,8 +315,8 @@ function displayArray(array){
 
         deleteIcon.addEventListener("click", () => {
             if (window.confirm(`Do you really want to delete this book from your library ?`)){
-                libraryDisplay.removeChild(bookCard);
                 deleteFromLibrary(myLibrary, id);
+                displayArray(myLibrary)
             }
         })
 
