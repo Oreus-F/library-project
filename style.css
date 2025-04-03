@@ -10,6 +10,15 @@
 
 :root{
     --white : #FFFFFF;
+    --grey-real-light : #fafafa;
+
+    --primary-color : #F8F4E3;
+
+
+    --secondary-color: #D4CDC3;
+
+
+    --ascent-color: #D5D0CD ;
 }
 
 *,
@@ -49,7 +58,9 @@ body, html {
 }
 
 .header{
-    border : blue 2px solid;
+    background-color: var(--secondary-color);
+
+
     grid-area: header;
 
     display: flex;
@@ -77,7 +88,9 @@ body, html {
 }
 
 .sidebar{
-    border : green 2px solid;
+    background-color: var(--primary-color);
+    
+    
     grid-area: sidebar;
 
     display: grid;
@@ -113,20 +126,26 @@ body, html {
 
 
 .library{
-    border : red 2px solid;
+    background-color: var(--grey-real-light);
+    
     grid-area: library;
 
     overflow-y: scroll;
 
     display: grid;
-    grid-template-rows: 80px 1fr;
 
 }
 
 .library > div:first-child{
+    background-color: var(--grey-real-light);
+
     align-self: center;
     position: sticky;
     top: 0px;
+
+    box-shadow: rgb(204, 204, 204) 0px 2px 5px;
+
+    z-index: 1000;
 }
 
 #searchBarForm{
@@ -192,7 +211,7 @@ body, html {
 
 
 #orderIcon > svg {
-    z-index: 1000;
+    z-index: 500;
 }
 
 #orderIcon:active > svg{
@@ -326,7 +345,7 @@ body, html {
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 1000;
+    z-index: 500;
 
     display: grid;
     justify-content: center;
