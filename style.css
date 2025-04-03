@@ -10,27 +10,14 @@
 
 :root{
     --white : #FFFFFF;
-    --grey-real-light : #fafafa;
+    --background : #f5f5f5;
 
 
-/* 1st test color CREAM */
+    --primary-color: #fafafa;
 
-    /* --primary-color : #F8F4E3;
+    --secondary-color : #628395;
 
-
-    --secondary-color: #D4CDC3;
-
-
-    --ascent-color: #D5D0CD ; */
-
-
-    /* SECOND TEST GREEN */
-
-    --primary-color: #454851;
-
-    --secondary-color : #73956F;
-
-    --ascent-color: #7BAE7F;
+    --ascent-color: #272932;
 }
 
 *,
@@ -60,7 +47,7 @@ body, html {
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-rows: 120px 1fr;
-    grid-template-areas: 
+    grid-template-areas:
     "sidebar header"
     "sidebar library";
 }
@@ -70,8 +57,7 @@ body, html {
 }
 
 .header{
-    background-color: var(--grey-real-light);
-    box-shadow: rgb(205, 205, 205) 2px 0 5px;
+    background-color: var(--background);
 
     grid-area: header;
     
@@ -89,7 +75,6 @@ body, html {
 
 .sidebar{
     background-color: var(--primary-color);
-    color: var(--grey-real-light);
 
     grid-area: sidebar;
 
@@ -145,7 +130,7 @@ body, html {
 
 
 .library{
-    background-color: var(--grey-real-light);
+    background-color: var(--background);
     
     grid-area: library;
 
@@ -250,6 +235,8 @@ body, html {
 #searchBarForm > button,
 #searchBarForm > input[type = "search"] {
     border-radius: 20px;
+    width: 80%;
+    justify-self: center;
 }
 
 
@@ -264,6 +251,8 @@ body, html {
 }
 
 .card{
+    background-color: var(--primary-color);
+
     padding: 18px;
     border-radius: 12px;
 
