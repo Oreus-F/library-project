@@ -124,9 +124,6 @@ body, html {
 }
 
 .library > div:first-child{
-
-    padding: 12px;
-
     align-self: center;
     position: sticky;
     top: 0px;
@@ -139,9 +136,9 @@ body, html {
     
 }
 
-#searchBarForm > input[type = "search"] {
-    border-radius: 20px;
-    border: 1px rgb(196, 196, 196) solid;
+#searchBarForm > input[type = "search"],
+#searchBarForm > select,
+.library > div:first-child {
     padding: 12px;
 }
 
@@ -156,13 +153,6 @@ body, html {
 
 .counter > p:last-child{
     font-size: 20px;
-}
-
-
-#searchBarForm > select {
-    border-radius: 20px;
-    padding-left: 12px;
-
 }
 
 
@@ -224,6 +214,16 @@ body, html {
 #order:not(:checked) ~ span > svg{
     rotate: 0deg;
     transition: 0.5s;
+}
+
+
+#searchBarForm > button,
+#searchBarForm > select,
+#searchBarForm > input[type = "search"] {
+    border-radius: 20px;
+    box-shadow: rgb(205, 205, 205) 2px 2px 5px;
+    border: none;
+    cursor: pointer;
 }
 
 
