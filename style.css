@@ -15,22 +15,22 @@
 
 /* 1st test color CREAM */
 
-    --primary-color : #F8F4E3;
+    /* --primary-color : #F8F4E3;
 
 
     --secondary-color: #D4CDC3;
 
 
-    --ascent-color: #D5D0CD ;
+    --ascent-color: #D5D0CD ; */
 
 
     /* SECOND TEST GREEN */
 
-    /* --primary-color: #454851;
+    --primary-color: #454851;
 
     --secondary-color : #73956F;
 
-    --ascent-color: #7BAE7F; */
+    --ascent-color: #7BAE7F;
 }
 
 *,
@@ -58,7 +58,7 @@ body, html {
     position:relative;
     
     display: grid;
-    grid-template-columns: minmax(230px, 15%) 1fr;
+    grid-template-columns: 300px 1fr;
     grid-template-rows: 120px 1fr;
     grid-template-areas: 
     "sidebar header"
@@ -70,8 +70,8 @@ body, html {
 }
 
 .header{
-    background-color: var(--secondary-color);
-
+    background-color: var(--grey-real-light);
+    box-shadow: rgb(205, 205, 205) 2px 0 5px;
 
     grid-area: header;
     
@@ -89,20 +89,39 @@ body, html {
 
 .sidebar{
     background-color: var(--primary-color);
-    
-    
+    color: var(--grey-real-light);
+
     grid-area: sidebar;
 
     display: grid;
+    grid-template-rows: 200px 1fr;
+    row-gap: 120px;
 
-    padding: 80px 0px 0px 24px;
+    padding: 60px 0px;
     
 }
 
+.sidebar svg {
+    fill: var(--grey-real-light);
+}
 
-.sidebar svg:first-child{
+
+.sidebar > span {
     justify-self: center;
     align-self: center;
+}
+
+.sidebar > span > svg{
+    height: 150px;
+    width: 150px;
+
+}
+
+.sidebar > span > p {
+    font-size: 2.7rem;
+    font-weight: 500;
+    text-align: center;
+
 }
 
 .sidebar ul {
@@ -110,7 +129,7 @@ body, html {
     flex-direction: column;
     gap: 32px;
 
-    padding-left: 12px;
+    padding-left: 60px;
 }
 
 .sidebar ul li{
