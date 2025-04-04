@@ -15,10 +15,9 @@
 
     --primary-color: #fafafa;
 
-    --secondary-color : #628395;
 
-    /* --ascent-color: #223127; */
     --ascent-color: #77AD78;
+    --ascent-second-color: #76a676;
 }
 
 *,
@@ -203,15 +202,21 @@ body, html {
     content: "Descending";
 }
 
+#orderIcon,
+#searchBarForm > label:first-child{
+    cursor: pointer;
+}
 
-
-#orderIcon > svg {
+#orderIcon > svg,
+#searchBarForm > label:first-child > svg {
+    fill: var(--ascent-color);
     z-index: 500;
 }
 
-#orderIcon:active > svg{
+#orderIcon:active > svg,
+#searchBarForm > label:first-child:active > svg{
     transform: scale(1.2);
-    transition: scale 0.5s;
+    transition: all 0.5s;
 }
 
 
@@ -245,6 +250,15 @@ body, html {
     border-radius: 20px;
     width: 100%;
     justify-self: center;
+}
+
+#searchBarForm > button{
+    background-color: var(--primary-color);
+    border: var(--ascent-color) 2px solid;
+}
+
+#searchBarForm > button:hover{
+    background-color: var(--ascent-color);
 }
 
 
@@ -367,6 +381,7 @@ body, html {
 
 .card > div:last-child > span:first-child,
 .card > div:last-child > span:last-child{
+    cursor: pointer;
     height: 100%;
     width: 100%;
     z-index: 500;
@@ -572,20 +587,24 @@ body, html {
 
 
 
-.extraInfoPanel > p:nth-child(3):not(:checked) > label:hover > svg{
-    fill: rgb(77, 145, 56);
+.extraInfoPanel > p:nth-child(3):not(:checked) > label:hover > svg,
+.card > p:nth-child(5) > label:hover > svg{
+    fill: var(--ascent-second-color);
+    cursor: pointer;
 }
 
-.extraInfoPanel > p:nth-child(4):not(:checked) > label:hover > svg {
-    fill: rgb(230, 50, 50);
+.extraInfoPanel > p:nth-child(4):not(:checked) > label:hover > svg,
+.card > :nth-child(6) > label:hover > svg{
+    fill: rgb(212, 109, 109);
+    cursor: pointer;
 }
 
 .checkedRead {
-    fill: rgb(100, 204, 76);
+    fill: var(--ascent-color);
 }
 
 .checkedFav {
-    fill: rgb(245, 77, 77);
+    fill: rgb(205, 59, 59);
 }
 
 
