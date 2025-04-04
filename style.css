@@ -245,9 +245,9 @@ body, html {
     padding: 24px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(50px, 250px));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, 340px);
+    grid-template-rows: repeat(auto-fit, minmax(650px, 1fr));
+    gap: 32px;
 }
 
 .card{
@@ -257,16 +257,19 @@ body, html {
     border-radius: 12px;
 
     display: grid;
-    grid-template-columns: 180px 1fr 1fr 1.5fr;
-    grid-template-rows: 15px repeat(4, 1fr) 15px;
-    grid-template-areas:
-    "img . . ." 
-    "img title title title"
-    "img author author ."
-    "img pages . ."
-    "img read favorite edit"
-    "img . . .";
-    row-gap: 0.4rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 480px repeat(4, 0.8fr);
+    
+    grid-template-areas: 
+    "img img img img img"
+    "title title title title title"
+    "author author author author author"
+    " pages pages pages pages pages"
+    "read favorite . edit edit";
+
+    justify-content: center;
+
+    row-gap: 0.8rem;
 
     font-size: 1.2rem;
 
@@ -280,7 +283,10 @@ body, html {
 .previewImg {
     grid-area: img;
     height: 100%;
-    aspect-ratio: 1 / 1.3;
+    aspect-ratio: 1 / 1.6;
+
+    /* border-radius: 12px;
+    box-shadow: rgb(160, 160, 160) 4px 4px 8px; */
 }
 
 .card > p:nth-child(2){
