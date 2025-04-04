@@ -287,33 +287,44 @@ function displayArray(array){
 
         // read checkbok
         const labelRead = elements[4].firstElementChild;
+        const svgRead = labelRead.firstElementChild;
         const checkRead = elements[4].lastElementChild;
 
         labelRead.setAttribute(`for`, `read-${id}`);
         checkRead.id = `read-${id}`;
 
-        if (item.read) {checkRead.checked = true};
+        if (item.read) {
+            checkRead.checked = true
+            svgRead.classList.toggle("checkedRead")
+        };
         
         checkRead.addEventListener("change", () => {
-
             changeReadStatus(myLibrary, id);
             displayArray(myLibrary);
         });
 
-
+        checkRead.addEventListener("change", () => {svgRead.classList.toggle("checkedRead");});
+        
         // fav checkbox
         const labelFav = elements[5].firstElementChild;
+        const svgFav = labelFav.firstElementChild;
         const checkFav = elements[5].lastElementChild;
-
+        
         labelFav.setAttribute(`for`, `fav-${id}`);
         checkFav.id = `fav-${id}`;
-
-        if (item.favorite) {checkFav.checked = true};
-
+        
+        if (item.favorite) {
+            checkFav.checked = true
+            svgFav.classList.toggle("checkedFav")
+        };
+        
         checkFav.addEventListener("change", () => {
             changeFavStatus(myLibrary, id);
             displayArray(myLibrary);
         })
+        
+        checkFav.addEventListener("change", () => {svgFav.classList.toggle("checkedFav")});
+
 
         // DIV with ICON
         const editIcon = elements[6].firstElementChild;
@@ -583,7 +594,6 @@ editFormData.addEventListener("submit", sendBookData);
 
 
 // Display Books with filter
-
 filter.addEventListener("change", () => {displayArray(myLibrary)});
 
 
@@ -592,7 +602,6 @@ filter.addEventListener("change", () => {filterOption.disabled = false, once=tru
 
 
 // Display book after selecting Option 
-
 filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 
 
