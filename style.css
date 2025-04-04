@@ -292,7 +292,7 @@ body, html {
 .card > p:nth-child(2){
     grid-area: title;
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .card > p:nth-child(3){
@@ -301,7 +301,15 @@ body, html {
 }
 
 .card > p:nth-child(4){
-    grid-area: pages;
+    grid-area: pages;    
+}
+
+.card > p:nth-child(2),
+.card > p:nth-child(3),
+.card > p:nth-child(4),
+.card > p:nth-child(5),
+.card > p:nth-child(6){
+    padding-left: 8px;
 }
 
 .card > p:nth-child(5){
@@ -311,6 +319,18 @@ body, html {
 .card > p:nth-child(6) {
     grid-area: favorite;
 }
+
+
+.card > p:nth-child(5) > input,
+.card > p:nth-child(6) > input{
+    display: none;
+}
+
+.card > p:nth-child(5) > label > svg,
+.card > p:nth-child(6) > label > svg{
+    height: 50px;
+}
+
 
 .card > div:last-child{
     grid-area: edit;
@@ -437,7 +457,7 @@ body, html {
     width: 100%;
 
     display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100px 100px;
     padding: 20px;
 }
