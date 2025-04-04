@@ -70,7 +70,7 @@ body, html {
 
 #searchBarForm{
     display: grid;
-    grid-template-columns: 40px 2fr repeat(3, 0.5fr) 0.6fr 1fr 1fr;
+    grid-template-columns: 40px 2.5fr repeat(3, 0.5fr) 0.6fr 0.6fr 0.7fr;
     gap: 12px;
 
     margin: 8.5px 0px;
@@ -146,10 +146,14 @@ body, html {
 
 
 
-#searchBarForm > input[type = "search"],
-#searchBarForm > select,
-.library > div:first-child {
+#searchBarForm > #search,
+#searchBarForm > select{
     padding: 12px;
+}
+
+
+#search:focus-visible{
+    outline: var(--ascent-color) 2px solid;
 }
 
 
@@ -237,9 +241,9 @@ body, html {
 
 
 #searchBarForm > button,
-#searchBarForm > input[type = "search"] {
+#searchBarForm > #search {
     border-radius: 20px;
-    width: 80%;
+    width: 100%;
     justify-self: center;
 }
 
