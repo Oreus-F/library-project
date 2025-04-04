@@ -286,7 +286,11 @@ function displayArray(array){
         elements[3].textContent = `${item.pages} pages`;
 
         // read checkbok
+        const labelRead = elements[4].firstElementChild;
         const checkRead = elements[4].lastElementChild;
+
+        labelRead.setAttribute(`for`, `read-${id}`);
+        checkRead.id = `read-${id}`;
 
         if (item.read) {checkRead.checked = true};
         
@@ -298,7 +302,11 @@ function displayArray(array){
 
 
         // fav checkbox
+        const labelFav = elements[5].firstElementChild;
         const checkFav = elements[5].lastElementChild;
+
+        labelFav.setAttribute(`for`, `fav-${id}`);
+        checkFav.id = `fav-${id}`;
 
         if (item.favorite) {checkFav.checked = true};
 
