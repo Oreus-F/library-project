@@ -47,6 +47,7 @@ const counterBook = document.querySelector("#counterBook");
 const counterRead = document.querySelector("#counterRead");
 const counterFav = document.querySelector("#counterFav");
 
+let searchingFlag = false;
 
 const myLibrary = [];
 
@@ -217,6 +218,8 @@ function displayArray(array){
 
         // read and fav not working cannot use sort that way
         if (filter.value === "read") {
+
+
             array = array.slice().filter((book) => book.read);
             myLibrary.forEach((book) => {
                 if (book.read !== true){
@@ -241,6 +244,7 @@ function displayArray(array){
         if (filter.value === "parution") {array = array.slice().sort((a, b) => b.parutionDate - a.parutionDate)};
 
         if (filter.value === "read") {
+
             array = array.slice().filter((book) => book.read !== true);
             myLibrary.forEach((book) => {
                 if (book.read){
@@ -261,6 +265,8 @@ function displayArray(array){
         if (filter.value === "rate") {array = array.slice().filter((book) => book.rate).sort((a, b) => a.rate - b.rate);}
     }
 
+    console.log(array)
+    if (searchingFlag){array = getSpecificBook(array)};
 
     array.forEach((item) => {
 
@@ -513,11 +519,16 @@ function showEditBookData(id, array){
     })
 }
 
+function activateSearchingBook(){
+    searchingFlag = true;
+    displayArray(myLibrary);
+    searchingFlag = false;
+}
+
+
 
 function getSpecificBook(array){
     let request = search.value.toLowerCase();
-
-
 
     let result = array.filter((book) => {
 
@@ -526,7 +537,7 @@ function getSpecificBook(array){
         .includes(request);
     })
 
-    displayArray(result);
+    return result;
 };
 
 
@@ -609,7 +620,8 @@ filterOption.addEventListener("change", () => {displayArray(myLibrary)});
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    getSpecificBook(myLibrary);
+    activateSearchingBook();
+    search.value = "";
 });
 
 
