@@ -346,7 +346,7 @@ function displayArray(array){
         libraryDisplay.appendChild(bookCard);
     });
 
-    editCounter(array);    
+    editCounter(myLibrary);    
 };
 
 
