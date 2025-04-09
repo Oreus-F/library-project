@@ -578,11 +578,6 @@ closeEditForm.addEventListener("click", () => {
 });
 
 
-// Open panel for more information inside Edit/NewBook window
-togglePanelButton.addEventListener("click", () => {extraPanel.classList.toggle("visible")});
-toggleEditPanelButton.addEventListener("click", () => extraEditPanel.classList.toggle("visible"))
-
-
 // Display the preview of selected cover for both new/edit window
 chooseCover.addEventListener("change", () => {getImgData(chooseCover)});
 editCover.addEventListener("change", () => {getImgData(editCover)});
@@ -726,3 +721,4 @@ book8.storeRate('3');
 myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9, book10, book11, book12);
 
 displayArray(myLibrary);
+newBookForm.showModal()
