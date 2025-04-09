@@ -178,7 +178,6 @@ function editBookFromLibrary(object, array) {
                     let editPreview = document.querySelector("#editPreview").firstChild.getAttribute("src");
                     if (editPreview !== book[index]){book[index] = editPreview};
                 } else if (index === "readOrNot") {
-                    console.log(`the checkbox is :  ${object.readOrNot}`);
                     if (book.read !== true) {book.toggleRead()};
                 } else if (index === "favorite") {
                     // Check if fav is turned on
@@ -190,9 +189,7 @@ function editBookFromLibrary(object, array) {
             });
 
             // Check if read of fav has been turned off
-            console.log(object.readOrNot)
             if (object.readOrNot === undefined && book.read === true){book.toggleRead()};
-            console.log(object.favorite)
             if (object.favorite === undefined && book.favorite === true){book.toggleFavorite()};
             
 
@@ -264,8 +261,6 @@ function displayArray(array){
 
         if (filter.value === "rate") {array = array.slice().filter((book) => book.rate).sort((a, b) => a.rate - b.rate);}
     }
-
-    console.log(array)
     if (searchingFlag){array = getSpecificBook(array)};
 
     array.forEach((item) => {
