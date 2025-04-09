@@ -3,14 +3,11 @@
 const libraryDisplay = document.querySelector("#libraryDisplay");
 
 const newBookButton = document.querySelector("#createNewBook");
-const togglePanelButton = document.querySelector("#toggle-panel");
-const toggleEditPanelButton = document.querySelector("#toggle-EditPanel");
 
 const newBookForm = document.querySelector("#newBookForm");
-const extraPanel = document.querySelector(".extraInfoPanel");
+const extraPanel = document.querySelector(".moreInformation");
 const editBookForm = document.querySelector("#editBookForm");
-const extraEditPanel = document.querySelector(".edit");
-
+const extraEditPanel = document.querySelector(".edit")
 
 const previewCover = document.querySelector("#preview");
 const previewEditCover = document.querySelector("#editPreview");
@@ -181,6 +178,7 @@ function editBookFromLibrary(object, array) {
                     let editPreview = document.querySelector("#editPreview").firstChild.getAttribute("src");
                     if (editPreview !== book[index]){book[index] = editPreview};
                 } else if (index === "readOrNot") {
+                    console.log(`the checkbox is :  ${object.readOrNot}`);
                     if (book.read !== true) {book.toggleRead()};
                 } else if (index === "favorite") {
                     // Check if fav is turned on
@@ -192,7 +190,9 @@ function editBookFromLibrary(object, array) {
             });
 
             // Check if read of fav has been turned off
+            console.log(object.readOrNot)
             if (object.readOrNot === undefined && book.read === true){book.toggleRead()};
+            console.log(object.favorite)
             if (object.favorite === undefined && book.favorite === true){book.toggleFavorite()};
             
 
@@ -456,40 +456,42 @@ function showEditBookData(id, array){
 
     const values = editFormData.children;
     const panelValue = extraEditPanel.children;
+    let status = panelValue[2].children
     editFormData.id = id;
 
     array.forEach((book) => {
         if (id === book.id){
 
+            
             // title
             values[1].lastElementChild.value = book.title;
-
+            
             // author
             values[2].lastElementChild.value = book.author;
-
+            
             // pages
             values[3].lastElementChild.value = book.pages;
-
+            
             // editor
             if (book.editor !== undefined){values[4].lastElementChild.value = book.editor};
-
+            
             // Parution Date
             if (book.parutionDate !== undefined){panelValue[0].lastElementChild.value = book.parutionDate};
-
+            
             // format
             if (book.format !== undefined){panelValue[1].lastElementChild.value = book.format};
-
+            
             // Read 
             if (book.read) {
-                panelValue[2].lastElementChild.checked = true;
+                status[0].lastElementChild.checked = true;
                 readEditIcon.classList.toggle("checkedRead");
             };
             
             
             // Favorite
             if (book.favorite) {
-                panelValue[3].lastElementChild.checked = true;
                 favEditIcon.classList.toggle("checkedFav");
+                status[1].lastElementChild.checked = true;
             };
 
             // PreviewImg
@@ -721,4 +723,3 @@ book8.storeRate('3');
 myLibrary.push(book3, book1, book2, book4, book5, book6, book7, book8, book9, book10, book11, book12);
 
 displayArray(myLibrary);
-newBookForm.showModal()

@@ -460,7 +460,8 @@ body, html {
 
 
 #newBookForm form > p:nth-child(-n+5),
-#editBookForm form  > p:nth-child(-n+5) {
+#editBookForm form  > p:nth-child(-n+5),
+.moreInformation > p:nth-child(-n + 2) {
     display: grid;
     grid-template-rows: 20px 1fr;
     row-gap: 6px;
@@ -470,58 +471,96 @@ body, html {
 
 #newBookForm form > p:nth-child(-n+5) > input,
 #editBookForm form > p:nth-child(-n+5) > input,
-.extraInfoPanel > p:nth-child(1) > input,
-.extraInfoPanel > p:nth-child(2) > select {
+.moreInformation > p:nth-child(1) > input,
+.moreInformation > p:nth-child(2) > select {
     height: 35px;
     padding: 4px;
 
 }
 
-.moreInformation{
+
+.moreInformation__field{
     grid-column: 1/3;
+
 }
 
 
-.extraInfoPanel > p:nth-child(2){
-    grid-row: 2/3;
-    grid-column: 1/2;
+.moreInformation__field > legend{
+    padding: 1em;
+    margin-left: 1em;
 }
 
-.extraInfoPanel > p:nth-child(4){
-    grid-row: 2/3;
-    grid-column: 2/3;
-}
-
-.extraInfoPanel > p:nth-child(-n + 2){
+.moreInformation{
     display: grid;
-    gap: 6px;
+    grid-template-columns: 0.8fr 1fr;
+    grid-template-rows: repeat(3, 1fr) 0.5fr;
+
+    column-gap: 22px;
+
+    padding: 20px;
 }
 
-.extraInfoPanel > p:nth-child(-n + 2) > label {
-    align-self: self-end;
+
+.status{
+    grid-column: 2/3;
+    grid-row: 3/5;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.status p > label{
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.status p > label > span{
+    font-size: 1.2rem;
+}
+
+.status p > label > svg {
+    height: 100px;
+}
+
+
+#readOrNot, #favorite, #readEdit, #favoriteEdit {
+    display: none;
 }
 
 
 .previewImg {
-    height: 130px;
+    height: 260px;
     aspect-ratio: 1 / 1.3;
-    float: right;
+    float: left;
 }
 
-.extraInfoPanel > p:last-child {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+
+#preview, #editPreview{
+    grid-column: 1/2;
+    grid-row: 1/4;
 }
 
-.extraInfoPanel > p:last-child > label {
+
+.moreInformation > p:last-child {
+    position: relative;
+}
+
+
+.moreInformation > p:last-child > label {
     border: 1px solid black;
     padding: 6px 12px;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    border-radius: 4px; 
+
+    position: absolute;
+    bottom: 0px;
 }
 
-.extraInfoPanel > p:last-child > input {
+.moreInformation > p:last-child > input {
     display: none;
 }
 
@@ -553,40 +592,16 @@ body, html {
 /* Read And Favorite */
 
 
-.extraInfoPanel > p:nth-child(3) > label,
-.extraInfoPanel > p:nth-child(4) > label {
-    display: grid;
-    grid-template-rows: 1fr 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
-
-
-.extraInfoPanel > p:nth-child(3) svg,
-.extraInfoPanel > p:nth-child(4) svg {
-    height: 50px;
-    justify-self: center;
-}
-
-.extraInfoPanel > p:nth-child(3) > label > span {
-    justify-self: center;
-}
-
-#readOrNot, #favorite, #readEdit, #favoriteEdit {
-    display: none;
-}
 
 
 
-.extraInfoPanel > p:nth-child(3):not(:checked) > label:hover > svg,
+.status > p:first-child:not(:checked) > label:hover > svg,
 .card > p:nth-child(5) > label:hover > svg{
     fill: var(--ascent-second-color);
     cursor: pointer;
 }
 
-.extraInfoPanel > p:nth-child(4):not(:checked) > label:hover > svg,
+.status > p:last-child:not(:checked) > label:hover > svg,
 .card > :nth-child(6) > label:hover > svg{
     fill: rgb(212, 109, 109);
     cursor: pointer;
