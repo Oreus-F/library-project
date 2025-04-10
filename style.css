@@ -285,10 +285,12 @@ body, html {
     border-radius: 12px;
     color: var(--white);
     min-width: 70%;
+    transition: 400ms;
 }
 
 #searchBarForm > button:hover{
     background-color: var(--ascent-second-color);
+    transition: 400ms;
 }
 
 #searchBarForm > button:active{
