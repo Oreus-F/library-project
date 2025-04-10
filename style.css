@@ -435,6 +435,10 @@ body, html {
 
 }
 
+dialog::backdrop{
+    backdrop-filter: blur(0.2rem);
+}
+
 #newBookForm form,
 #editBookForm form {
     
