@@ -50,9 +50,34 @@ const myLibrary = [];
 
 
 
-// LES IMAGES SONT TROP GRANDES MODIFIE UNIQUEMENT SUR CSS ELLES PRENNENT TROP DE PLACES DANS LE DOM A MODIFIER
 
 /* OBJECT AND PROTOTYPE */
+
+
+
+/* TEST REFACTORING INTO CLASS */
+
+
+class BookTest{
+
+    #id;
+
+    constructor(title, author, pages){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    };
+
+
+    generateId = (function(){this.#id = crypto.randomUUID()})();
+
+    get idNumber(){
+        return this.#id;
+    }
+}
+
+
+/* END OF REFACTORING TEST */
 
 const Book = function(title, author, pages){
     this.title = title;
