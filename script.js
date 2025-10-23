@@ -516,6 +516,7 @@ function showEditBookData(id, array){
     })
 }
 
+
 function activateSearchingBook(){
     searchingFlag = true;
     displayArray(myLibrary);
@@ -555,6 +556,19 @@ function editCounter(array){
 };
 
 
+function checkValidity(event){
+    const button = event.currentTarget;
+    const form = button.closest('form');
+    const title = form.querySelector('#title');
+    const author = form.querySelector('#author');
+    const pages = form.querySelector('#pages');
+
+    title.validity.valueMissing ? title.setCustomValidity('You need to fill with a title') : title.setCustomValidity('');
+    author.validity.valueMissing ? author.setCustomValidity('This book needs an author !') : author.setCustomValidity('');
+    pages.validity.valueMissing ? pages.setCustomValidity('You need to put how many pages this book has') : pages.setCustomValidity('');
+}
+
+
 /* EVENT LISTENER PART */
 
 // Open window for new book
@@ -589,10 +603,12 @@ favEditCheckbox.addEventListener("change", () => {favEditIcon.classList.toggle("
 
 
 // activate new book process
+sendBookButton.addEventListener('click', (event)=> {checkValidity(event)});
 formDataPanel.addEventListener("submit", sendBookData);
 
 
 // activate edit book process
+editBookButton.addEventListener('click', (event)=> {checkValidity(event)})
 editFormData.addEventListener("submit", sendBookData);
 
 
